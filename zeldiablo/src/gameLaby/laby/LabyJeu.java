@@ -45,4 +45,8 @@ public class LabyJeu implements Jeu {
         // Pas de fin particulière.
         return false;
     }
+
+    public Labyrinthe getLabyrinthe() {
+        return this.laby;
+    }
 }

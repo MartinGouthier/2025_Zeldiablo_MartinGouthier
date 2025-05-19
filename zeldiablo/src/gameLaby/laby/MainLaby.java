@@ -8,7 +8,7 @@ public class MainLaby {
         int pFPS = 100;
 
         // creation des objets
-        public JeuLaby jeu_laby = new JeuLaby();
+        public LabyJeu jeu_laby = new LabyJeu();
         public LabyDessin laby_dessin = new LabyDessin();
 
         // parametrage du moteur de jeu
