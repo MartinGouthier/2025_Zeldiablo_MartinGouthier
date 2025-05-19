@@ -22,7 +22,7 @@ public class LabyDessin implements DessinJeu {
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         int nbrLigne = laby.getLength();
         int nbrColonne = laby.getLengthY();
-        int dimension = (int) (canvas.getWidth()/nbrColonne);
+        int dimension = (int) (canvas.getHeight()/nbrLigne);
 
         for (int i=0;i<nbrLigne;i++){
 
