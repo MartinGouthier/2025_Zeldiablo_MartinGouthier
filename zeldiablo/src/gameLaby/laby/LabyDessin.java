@@ -20,19 +20,20 @@ public class LabyDessin implements DessinJeu {
 
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
-        int nbrLigne = laby.getLength();
-        int nbrColonne = laby.getLengthY();
-        int dimension = (int) (canvas.getHeight()/nbrLigne);
+        int nbrColonne = laby.getLength();
+        int nbrLigne = laby.getLengthY();
+        int largeur = (int) (canvas.getWidth()/nbrColonne);
+        int hauteur = (int) (canvas.getHeight()/nbrLigne);
 
-        for (int i=0;i<nbrLigne;i++){
+        for (int i=0;i<nbrColonne;i++){
 
-            for (int j = 0;j<nbrColonne;j++){
+            for (int j = 0;j<nbrLigne;j++){
                 if (laby.getMur(i,j)){
                     gc.setFill(Color.BLACK);
                 } else{
                     gc.setFill(Color.WHITE);
                 }
-                gc.fillRect(i*dimension,j*dimension,dimension,dimension);
+                gc.fillRect(i*largeur,j*hauteur,largeur,hauteur);
 
             }
 
