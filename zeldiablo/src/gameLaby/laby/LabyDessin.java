@@ -28,8 +28,11 @@ public class LabyDessin implements DessinJeu {
 
             for (int j = 0;j<nbrColonne;j++){
                 if (laby.getMur(i,j)){
-                    gc.fillRect(i*dimension,j*dimension,dimension,dimension);
+                    gc.setFill(Color.BLACK);
+                } else{
+                    gc.setFill(Color.WHITE);
                 }
+                gc.fillRect(i*dimension,j*dimension,dimension,dimension);
 
             }
 
