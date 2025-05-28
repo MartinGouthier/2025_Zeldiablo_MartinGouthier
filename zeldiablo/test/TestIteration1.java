@@ -22,9 +22,7 @@ import java.io.IOException;
  *     Initialisation correcte d’un monstre
  *     Vérification que le monstre n’est pas sur la même case que le personnage
  *     Vérification qu’un monstre empêche le déplacement du personnage
- * 
  *
- * @author VotreNom
  */
 public class TestIteration1 {
 
