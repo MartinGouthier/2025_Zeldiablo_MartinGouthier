@@ -20,19 +20,19 @@ public class LabyJeu implements Jeu {
         // deplace le personnage en fonction de l'action
 
         if (clavier.droite) {
-            this.laby.deplacerPerso(Labyrinthe.DROITE);
+            this.laby.deplacerEntite(Labyrinthe.DROITE, laby.getPerso());
         }
 
         if (clavier.gauche) {
-            this.laby.deplacerPerso(Labyrinthe.GAUCHE);
+            this.laby.deplacerEntite(Labyrinthe.GAUCHE, laby.getPerso());
         }
 
         if (clavier.haut) {
-            this.laby.deplacerPerso(Labyrinthe.HAUT);
+            this.laby.deplacerEntite(Labyrinthe.HAUT, laby.getPerso());
         }
 
         if (clavier.bas) {
-            this.laby.deplacerPerso(Labyrinthe.BAS);
+            this.laby.deplacerEntite(Labyrinthe.BAS, laby.getPerso());
         }
 
     }

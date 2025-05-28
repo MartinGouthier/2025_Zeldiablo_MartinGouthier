@@ -145,23 +145,31 @@ public class Labyrinthe {
 
 
     /**
-     * deplace le personnage en fonction de l'action.
-     * gere la collision avec les murs
+     * deplace l'entité en fonction de l'action.
+     * gere la collision avec les murs et les autres entités
      *
      * @param action une des actions possibles
+     * @param e Entite qui se déplace
      */
-    public void deplacerPerso(String action) {
+    public void deplacerEntite(String action, Entite e) {
         // case courante
-        int[] courante = {this.pj.x, this.pj.y};
+        int[] courante = {e.getX(), e.getY()};
 
         // calcule case suivante
         int[] suivante = getSuivant(courante[0], courante[1], action);
 
-        // si c'est pas un mur, on effectue le deplacement
-        if (!this.murs[suivante[0]][suivante[1]]) {
+        // Recherche si une entité est déja présente
+        boolean entitePresente = false;
+        for (Entite ent : this.entites){
+            if (ent.etrePresent(suivante[0],suivante[1])){
+                entitePresente = true;
+                break;
+            }
+        }
+        // si c'est pas un mur et s'il n'y a aucune entité, on effectue le deplacement
+        if (!this.getMur(suivante[0],suivante[1])&&!entitePresente) {
             // on met a jour personnage
-            this.pj.x = suivante[0];
-            this.pj.y = suivante[1];
+            e.deplacer(action);
         }
     }
 
