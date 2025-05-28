@@ -31,7 +31,7 @@ public class LabyDessin implements DessinJeu {
                     gc.setFill(Color.WHITE);
                 }
                 gc.fillRect(i*largeur,j*hauteur,largeur,hauteur);
-                if (i == laby.pj.getX()&&j == laby.pj.getY()){
+                if (laby.pj.etrePresent(i,j)){
                     gc.setFill(Color.RED);
                     gc.fillOval(i*largeur,j*hauteur,largeur,hauteur);
                 }
