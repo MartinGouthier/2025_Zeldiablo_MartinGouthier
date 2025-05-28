@@ -18,6 +18,7 @@ public class Labyrinthe {
     public static final char MUR = 'X';
     public static final char PJ = 'P';
     public static final char VIDE = '.';
+    public static final char MONSTRE = 'M';
 
     /**
      * constantes actions possibles
@@ -26,6 +27,7 @@ public class Labyrinthe {
     public static final String BAS = "Bas";
     public static final String GAUCHE = "Gauche";
     public static final String DROITE = "Droite";
+
 
     /**
      * attribut du personnage
@@ -93,6 +95,7 @@ public class Labyrinthe {
         // creation labyrinthe vide
         this.murs = new boolean[nbColonnes][nbLignes];
         this.pj = null;
+        this.entites = new ArrayList<>();
 
         // lecture des cases
         String ligne = bfRead.readLine();
@@ -119,7 +122,12 @@ public class Labyrinthe {
                         // ajoute PJ
                         this.pj = new Perso(colonne, numeroLigne);
                         break;
-
+                    case MONSTRE:
+                        // pas de mur
+                        this.murs[colonne][numeroLigne] = false;
+                        // ajoute PJ
+                        this.entites.add(new Monstre(colonne,numeroLigne,5));
+                        break;
                     default:
                         throw new Error("caractere inconnu " + c);
                 }
