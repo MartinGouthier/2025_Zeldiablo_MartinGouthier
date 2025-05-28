@@ -66,4 +66,21 @@ public abstract class Entite {
     public void modifierVie(int i){
         this.vie+=i;
     }
+
+    public void deplacer(String s){
+        switch (s){
+            case Labyrinthe.HAUT:
+                this.x --;
+                break;
+            case Labyrinthe.BAS:
+                this.x++;
+                break;
+            case Labyrinthe.DROITE:
+                this.y++;
+                break;
+            case Labyrinthe.GAUCHE:
+                this.y--;
+                break;
+        }
+    }
 }
