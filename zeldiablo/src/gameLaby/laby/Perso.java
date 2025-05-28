@@ -10,6 +10,8 @@ public class Perso {
      * position du personnage
      */
     int x, y;
+    int vie;
+
 
     /**
      * constructeur
@@ -20,6 +22,13 @@ public class Perso {
     public Perso(int dx, int dy) {
         this.x = dx;
         this.y = dy;
+        this.vie = 5;
+    }
+
+    public Perso(int dx, int dy, int v) {
+        this.x = dx;
+        this.y = dy;
+        this.vie = v;
     }
 
     /**
@@ -52,5 +61,27 @@ public class Perso {
     public int getY() {
         //getter
         return this.y;
+    }
+    /**
+     * @return vie du perssonnage
+     */
+    public int getVie() {
+        return this.vie;
+    }
+
+    /**
+     *
+     * @return boolean indiquant si le perso est en vie
+     */
+    public boolean estVivant(){
+        return this.vie>0;
+    }
+
+    /**
+     *
+     * @param i va etre incérementer a vie (peut etre négatif)
+     */
+    public void modifierVie(int i){
+        this.vie+=i;
     }
 }
