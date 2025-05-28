@@ -39,5 +39,22 @@ public class TestIteration1 {
         //Validation des résultats
         assertEquals(4, p.getVie(),"La vie du personnage dois être 4");
     }
+    @Test
+    public void InitMonstre() throws IOException {
+        
+    }
 
+    @Test
+    public void MonstreRepresenteParM() throws IOException {
+
+    }
+
+    @Test
+    public void PositionMonstreDiffPerso() throws IOException {
+
+    }
+    @Test
+    public void MonstreObstaclePourPerso() throws IOException {
+
+    }
 }
