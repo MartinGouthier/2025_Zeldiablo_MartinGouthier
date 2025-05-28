@@ -7,4 +7,14 @@ public class TestIteration1 {
 
     }
 
+    @Test
+    public void AttributEstVivant(){
+
+    }
+
+    @Test
+    public void MethodeModifierVie(){
+
+    }
+
 }
