@@ -1,16 +1,13 @@
 package gameLaby.laby;
 
-import javafx.application.Application;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import moteurJeu.DessinJeu;
 import moteurJeu.Jeu;
 
 
 public class LabyDessin implements DessinJeu {
-
     @Override
     public void dessinerJeu(Jeu jeu, Canvas canvas) {
         LabyJeu lj = (LabyJeu) jeu;
@@ -34,11 +31,13 @@ public class LabyDessin implements DessinJeu {
                     gc.setFill(Color.WHITE);
                 }
                 gc.fillRect(i*largeur,j*hauteur,largeur,hauteur);
+                if (i == laby.pj.getX()&&j == laby.pj.getY()){
+                    gc.setFill(Color.RED);
+                    gc.fillOval(i*largeur,j*hauteur,largeur,hauteur);
+                }
 
             }
 
         }
-
-
     }
 }
