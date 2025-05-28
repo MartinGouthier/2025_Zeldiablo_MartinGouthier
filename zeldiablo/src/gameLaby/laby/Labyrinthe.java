@@ -121,6 +121,7 @@ public class Labyrinthe {
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute PJ
                         this.pj = new Perso(colonne, numeroLigne);
+                        this.entites.add(pj);
                         break;
                     case MONSTRE:
                         // pas de mur
@@ -212,5 +213,9 @@ public class Labyrinthe {
      */
     public Perso getPerso() {
         return this.pj;
+    }
+
+    public ArrayList<Entite> getEntites(){
+        return this.entites;
     }
 }

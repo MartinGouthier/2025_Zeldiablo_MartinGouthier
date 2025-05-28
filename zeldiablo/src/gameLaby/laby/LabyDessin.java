@@ -66,11 +66,17 @@ public class LabyDessin implements DessinJeu {
                     gc.setFill(Color.WHITE);
                 }
                 gc.fillRect(i * largeur, j * hauteur, largeur, hauteur);
-                if (laby.pj.etrePresent(i, j)) {
-                    gc.setFill(Color.RED);
-                    gc.fillOval(i * largeur, j * hauteur, largeur, hauteur);
+                for(Entite entite : laby.getEntites()){
+                    if (entite.etrePresent(i, j)){
+                        if(laby.pj.etrePresent(i,j)){
+                            gc.setFill(Color.RED);
+                        }
+                        else {
+                            gc.setFill(Color.PURPLE);
+                        }
+                        gc.fillOval(i * largeur, j * hauteur, largeur, hauteur);
+                    }
                 }
-
             }
         }
     }
