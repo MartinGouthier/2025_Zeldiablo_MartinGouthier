@@ -6,17 +6,34 @@ import javafx.scene.paint.Color;
 import moteurJeu.DessinJeu;
 import moteurJeu.Jeu;
 
-
+/**
+ * Classe responsable de l'affichage graphique du jeu de labyrinthe.
+ * Implémente l'interface {@link DessinJeu}.
+ */
 public class LabyDessin implements DessinJeu {
+
+    /**
+     * Dessine le jeu sur le canevas.
+     * Affiche soit l'écran de fin, soit le jeu en cours selon l'état du jeu.
+     *
+     * @param jeu le jeu à dessiner (doit être une instance de {@link LabyJeu})
+     * @param canvas le canevas sur lequel dessiner
+     */
     @Override
     public void dessinerJeu(Jeu jeu, Canvas canvas) {
-
-
-        if (jeu.etreFini()) {this.ecranFin(jeu, canvas);}
-        else {this.jeuFonctionnel(jeu, canvas);}
-
+        if (jeu.etreFini()) {
+            this.ecranFin(jeu, canvas);
+        } else {
+            this.jeuFonctionnel(jeu, canvas);
+        }
     }
 
+    /**
+     * Affiche l'écran de fin de partie.
+     *
+     * @param jeu le jeu terminé
+     * @param canvas le canevas sur lequel afficher le message de fin
+     */
     public void ecranFin(Jeu jeu, Canvas canvas) {
         final GraphicsContext gc = canvas.getGraphicsContext2D();
 
@@ -30,7 +47,7 @@ public class LabyDessin implements DessinJeu {
         gc.setFont(font);
         gc.setFill(Color.RED);
 
-        // Utilisation de javafx.scene.text.Text pour mesurer le texte
+        // Mesure du texte pour le centrer
         javafx.scene.text.Text text = new javafx.scene.text.Text(message);
         text.setFont(font);
         double textWidth = text.getLayoutBounds().getWidth();
@@ -42,8 +59,12 @@ public class LabyDessin implements DessinJeu {
         gc.fillText(message, x, y);
     }
 
-
-
+    /**
+     * Affiche l'état actuel du labyrinthe : murs, cases vides, et entités (personnage ou ennemis).
+     *
+     * @param jeu le jeu en cours (doit être une instance de {@link LabyJeu})
+     * @param canvas le canevas sur lequel dessiner
+     */
     public void jeuFonctionnel(Jeu jeu, Canvas canvas) {
 
         LabyJeu lj = (LabyJeu) jeu;
@@ -52,27 +73,29 @@ public class LabyDessin implements DessinJeu {
         final GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+
         int nbrColonne = laby.getLength();
         int nbrLigne = laby.getLengthY();
         int largeur = (int) (canvas.getWidth() / nbrColonne);
         int hauteur = (int) (canvas.getHeight() / nbrLigne);
 
         for (int i = 0; i < nbrColonne; i++) {
-
             for (int j = 0; j < nbrLigne; j++) {
+                // Dessine les murs et les cases vides
                 if (laby.getMur(i, j)) {
                     gc.setFill(Color.BLACK);
                 } else {
                     gc.setFill(Color.WHITE);
                 }
                 gc.fillRect(i * largeur, j * hauteur, largeur, hauteur);
-                for(Entite entite : laby.getEntites()){
-                    if (entite.etrePresent(i, j)){
-                        if(laby.pj.etrePresent(i,j)){
-                            gc.setFill(Color.RED);
-                        }
-                        else {
-                            gc.setFill(Color.PURPLE);
+
+                // Dessine les entités présentes sur la case
+                for (Entite entite : laby.getEntites()) {
+                    if (entite.etrePresent(i, j)) {
+                        if (laby.pj.etrePresent(i, j)) {
+                            gc.setFill(Color.RED); // personnage joueur
+                        } else {
+                            gc.setFill(Color.PURPLE); // autre entité
                         }
                         gc.fillOval(i * largeur, j * hauteur, largeur, hauteur);
                     }
