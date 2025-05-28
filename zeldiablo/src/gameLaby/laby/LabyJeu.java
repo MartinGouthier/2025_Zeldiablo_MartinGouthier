@@ -42,7 +42,10 @@ public class LabyJeu implements Jeu {
     }
 
     public boolean etreFini() {
-        return false;
+        if (!this.laby.getPerso().estVivant()){
+            return false;
+        }
+        return true;
     }
 
     public Labyrinthe getLabyrinthe() {
