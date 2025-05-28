@@ -1,4 +1,8 @@
 package gameLaby.laby;
 
-public abstract class Monstre extends Entite{
+public class Monstre extends Entite{
+
+    public Monstre(int dx, int dy, int v) {
+        super(dx, dy, v);
+    }
 }

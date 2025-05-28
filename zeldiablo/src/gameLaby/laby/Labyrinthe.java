@@ -3,6 +3,7 @@ package gameLaby.laby;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * classe labyrinthe. represente un labyrinthe avec
@@ -36,6 +37,8 @@ public class Labyrinthe {
      */
     public boolean[][] murs;
 
+
+    private ArrayList<Entite> entites;
     /**
      * retourne la case suivante selon une actions
      *
