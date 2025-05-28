@@ -42,7 +42,6 @@ public class LabyJeu implements Jeu {
     }
 
     public boolean etreFini() {
-        // Pas de fin particulière.
         return false;
     }
 
