@@ -2,11 +2,16 @@ package gameLaby.laby;
 
 
 /**
- * gere un personnage situe en x,y
+ * Classe représentant un personnage situe en x,y
  */
 public class Perso extends Entite{
 
-    public Perso(int dx, int dy) {
-        super(dx, dy, 5);
+    /**
+     * Consctructeur personnage
+     * @param x Coordonnée x
+     * @param y Coordonnée y
+     */
+    public Perso(int x, int y) {
+        super(x, y, 5);
     }
 }

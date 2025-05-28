@@ -1,28 +1,45 @@
 package gameLaby.laby;
 
+/**
+ * Classe représantant une entité du labyrinthe
+ */
 public abstract class Entite {
 
     /**
-     * position de l'entité
+     * Position x de l'entité
      */
-    int x, y, vie;
+    private int x;
+    /**
+     * Position y de l'entité
+     */
+    private int y;
+    /**
+     * Vie de l'entité
+     */
+    private int vie;
 
-    public Entite(int dx, int dy, int v) {
-        this.x = dx;
-        this.y = dy;
+    /**
+     * Constructeur entité
+     * @param x Position x
+     * @param y Position y
+     * @param v Vie
+     */
+    public Entite(int x, int y, int v) {
+        this.x = x;
+        this.y = y;
         this.vie = v;
     }
 
     /**
      * permet de savoir si l'entité est en x,y
      *
-     * @param dx position testee
-     * @param dy position testee
+     * @param x position testee
+     * @param y position testee
      * @return true si le personnage est bien en (dx,dy)
      */
-    public boolean etrePresent(int dx, int dy) {
+    public boolean etrePresent(int x, int y) {
 
-        return (this.x == dx && this.y == dy);
+        return (this.x == x && this.y == y);
     }
 
     // ############################################
@@ -67,8 +84,12 @@ public abstract class Entite {
         this.vie+=i;
     }
 
-    public void deplacer(String s){
-        switch (s){
+    /**
+     * Modifie les coordonnées en fonction de la direction dir
+     * @param dir Direction
+     */
+    public void deplacer(String dir){
+        switch (dir){
             case Labyrinthe.HAUT:
                 this.y --;
                 break;

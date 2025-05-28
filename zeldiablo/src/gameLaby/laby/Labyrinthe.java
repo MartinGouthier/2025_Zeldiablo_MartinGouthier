@@ -40,6 +40,9 @@ public class Labyrinthe {
     public boolean[][] murs;
 
 
+    /**
+     * Liste des entités du labyrinthe
+     */
     private ArrayList<Entite> entites;
     /**
      * retourne la case suivante selon une actions

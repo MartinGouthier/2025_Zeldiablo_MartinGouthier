@@ -3,7 +3,16 @@ import moteurJeu.MoteurJeu;
 
 import java.io.IOException;
 
+/**
+ * Main lançant l'application du labyrinthe
+ */
 public class MainLaby {
+
+    /**
+     * Methode main lançant l'application
+     * @param args inutilisé
+     * @throws IOException erreur I/O
+     */
     public static void main(String[] args) throws IOException {
         int width = 800;
         int height = 600;
