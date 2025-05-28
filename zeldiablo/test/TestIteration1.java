@@ -1,4 +1,7 @@
+import com.sun.javafx.scene.EnteredExitedHandler;
+import gameLaby.laby.Entite;
 import gameLaby.laby.Labyrinthe;
+import gameLaby.laby.Monstre;
 import gameLaby.laby.Perso;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -39,22 +42,29 @@ public class TestIteration1 {
         //Validation des résultats
         assertEquals(4, p.getVie(),"La vie du personnage dois être 4");
     }
+
     @Test
     public void InitMonstre() throws IOException {
-        
+        //init des valeurs
+        Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
+        Entite m = l.getEntites().get(1);
+
     }
 
     @Test
     public void MonstreRepresenteParM() throws IOException {
-
+        //init des valeurs
+        Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
     }
 
     @Test
     public void PositionMonstreDiffPerso() throws IOException {
-
+        //init des valeurs
+        Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
     }
     @Test
     public void MonstreObstaclePourPerso() throws IOException {
-
+        //init des valeurs
+        Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
     }
 }
