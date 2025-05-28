@@ -43,9 +43,10 @@ public class LabyJeu implements Jeu {
 
     public boolean etreFini() {
         if (!this.laby.getPerso().estVivant()){
-            return false;
+            System.out.println("Le jeu est fini car le personnage est mort");
+            return true;
         }
-        return true;
+        return false;
     }
 
     public Labyrinthe getLabyrinthe() {
