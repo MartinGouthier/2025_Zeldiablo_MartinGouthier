@@ -88,7 +88,7 @@ public class LabyDessin implements DessinJeu {
                     gc.setFill(Color.WHITE);
                 }
                 gc.fillRect(i * largeur, j * hauteur, largeur, hauteur);
-
+    
                 // Dessine les entités présentes sur la case
                 for (Entite entite : laby.getEntites()) {
                     if (entite.etrePresent(i, j)) {

@@ -124,12 +124,12 @@ public class Labyrinthe {
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute PJ
                         this.pj = new Perso(colonne, numeroLigne);
-                        this.entites.add(pj);
+                        this.entites.addFirst(pj);
                         break;
                     case MONSTRE:
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
-                        // ajoute PJ
+                        // ajoute entité
                         this.entites.add(new Monstre(colonne,numeroLigne,5));
                         break;
                     default:
