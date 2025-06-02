@@ -1,10 +1,14 @@
 package gameLaby.laby;
 
 public class CaseAEffet {
-    int posx;
-    int posy;
-    String nomEffet = "Sans effet";
+    private int posx;
+    private int posy;
+    private String nomEffet = "Sans effet";
 
+    public CaseAEffet(int x, int y) {
+        this.posx = x;
+        this.posy = y;
+    }
     void activation(){
         System.out.println("La case à la position : " + posx+","+posy + " a été activée");
     }
