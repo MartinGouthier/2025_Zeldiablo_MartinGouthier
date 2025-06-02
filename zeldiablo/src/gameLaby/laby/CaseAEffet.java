@@ -9,7 +9,7 @@ public class CaseAEffet {
         this.posx = x;
         this.posy = y;
     }
-    void activation(){
+    void activation(Entite e){
         System.out.println("La case à la position : " + posx+","+posy + " a été activée");
     }
 

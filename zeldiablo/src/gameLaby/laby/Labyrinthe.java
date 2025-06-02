@@ -52,6 +52,11 @@ public class Labyrinthe {
      * @param action action effectuee
      * @return case suivante
      */
+
+    /**
+     * Liste des cases à effet
+     */
+    private ArrayList<CaseAEffet> caseEffets;
     static int[] getSuivant(int x, int y, String action) {
         switch (action) {
             case HAUT:
@@ -173,6 +178,12 @@ public class Labyrinthe {
         if (!this.getMur(suivante[0],suivante[1])&&!entitePresente) {
             // on met a jour personnage
             e.deplacer(action);
+            for (CaseAEffet cases : this.caseEffets){
+                int[] coord = cases.getPosition();
+                if (coord[0] == e.getX()&&coord[1]==e.getY()){
+                    cases.activation(e);
+                }
+            }
         }
     }
 
