@@ -19,6 +19,7 @@ public class Labyrinthe {
     public static final char PJ = 'P';
     public static final char VIDE = '.';
     public static final char MONSTRE = 'M';
+    public static final char CASSEAEFFET = 'E';
 
     /**
      * constantes actions possibles
@@ -39,6 +40,7 @@ public class Labyrinthe {
      */
     public boolean[][] murs;
 
+    public ArrayList<CaseAEffet> caseEffet;
 
     /**
      * Liste des entités du labyrinthe
@@ -99,6 +101,7 @@ public class Labyrinthe {
         this.murs = new boolean[nbColonnes][nbLignes];
         this.pj = null;
         this.entites = new ArrayList<>();
+        this.caseEffet = new ArrayList<>();
 
         // lecture des cases
         String ligne = bfRead.readLine();
@@ -131,6 +134,12 @@ public class Labyrinthe {
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute entité
                         this.entites.add(new Monstre(colonne,numeroLigne,5));
+                        break;
+                    case CASSEAEFFET:
+                        // pas de mur
+                        this.murs[colonne][numeroLigne] = false;
+                        // ajoute case
+                        this.caseEffet.add(new CaseAEffet(colonne,numeroLigne));
                         break;
                     default:
                         throw new Error("caractere inconnu " + c);
