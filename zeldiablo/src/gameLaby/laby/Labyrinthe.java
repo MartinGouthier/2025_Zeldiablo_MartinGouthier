@@ -20,6 +20,7 @@ public class Labyrinthe {
     public static final char VIDE = '.';
     public static final char MONSTRE = 'M';
     public static final char CASSEAEFFET = 'E';
+    public static final char PIEGE = 'T';
 
     /**
      * constantes actions possibles
@@ -59,6 +60,7 @@ public class Labyrinthe {
      * Liste des cases à effet
      */
     private ArrayList<CaseAEffet> caseEffets;
+
     static int[] getSuivant(int x, int y, String action) {
         switch (action) {
             case HAUT:
@@ -145,6 +147,12 @@ public class Labyrinthe {
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute case
                         this.caseEffet.add(new CaseAEffet(colonne,numeroLigne));
+                        break;
+                    case PIEGE:
+                        // pas de mur
+                        this.murs[colonne][numeroLigne] = false;
+                        // ajoute case
+                        this.caseEffet.add(new CasePiege(colonne,numeroLigne));
                         break;
                     default:
                         throw new Error("caractere inconnu " + c);
