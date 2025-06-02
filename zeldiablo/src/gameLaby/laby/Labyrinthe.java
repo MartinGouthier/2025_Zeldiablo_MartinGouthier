@@ -48,8 +48,7 @@ public class Labyrinthe {
      */
     private ArrayList<Entite> entites;
     /**
-     * retourne la case suivante selon une actions
-     *
+     * Retourne la case suivante selon une action
      * @param x      case depart
      * @param y      case depart
      * @param action action effectuee
@@ -90,7 +89,6 @@ public class Labyrinthe {
      * charge le labyrinthe
      *
      * @param nom nom du fichier de labyrinthe
-     * @return labyrinthe cree
      * @throws IOException probleme a la lecture / ouverture
      */
     public Labyrinthe(String nom) throws IOException {
@@ -221,7 +219,7 @@ public class Labyrinthe {
     /**
      * return taille selon Y
      *
-     * @return
+     * @return nombre ligne
      */
     public int getLengthY() {
         return murs[0].length;
@@ -230,7 +228,7 @@ public class Labyrinthe {
     /**
      * return taille selon X
      *
-     * @return
+     * @return nombre colonne
      */
     public int getLength() {
         return murs.length;
@@ -239,9 +237,9 @@ public class Labyrinthe {
     /**
      * return mur en (i,j)
      *
-     * @param x
-     * @param y
-     * @return
+     * @param x coordonnée x
+     * @param y coordonnée y
+     * @return Présence d'un mur
      */
     public boolean getMur(int x, int y) {
         // utilise le tableau de boolean
@@ -249,16 +247,25 @@ public class Labyrinthe {
     }
 
     /**
+     * Getter Perso
      * @return le personnage
      */
     public Perso getPerso() {
         return this.pj;
     }
 
+    /**
+     * Getter Liste d'entité
+     * @return Liste d'entité
+     */
     public ArrayList<Entite> getEntites() {
         return this.entites;
     }
 
+    /**
+     * Getter Liste de cases à effet
+     * @return Liste de cases à effets
+     */
     public ArrayList<CaseAEffet> getCaseEffet() {
         return this.caseEffets;
     }
