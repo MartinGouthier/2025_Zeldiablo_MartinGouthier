@@ -73,7 +73,7 @@ immédiatement un effet
 
 diagramme de classe :
 
-![image.png](attachment:f7c3eb94-24e3-4ce3-809f-50f8478d75b1:image.png)
+![image.png](../DiagrammeClasseCaseEffet.png)
 
 [CodeDuDiagramme](https://www.notion.so/CodeDuDiagramme-20667c381a9b80c38b14dcfb972e7ac0?pvs=21)
 
