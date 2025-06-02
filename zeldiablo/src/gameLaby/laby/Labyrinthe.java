@@ -140,19 +140,19 @@ public class Labyrinthe {
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute entité
-                        this.entites.add(new Monstre(colonne,numeroLigne,5));
+                        this.entites.add(new Monstre(colonne, numeroLigne, 5));
                         break;
                     case CASSEAEFFET:
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute case
-                        this.caseEffet.add(new CaseAEffet(colonne,numeroLigne));
+                        this.caseEffet.add(new CaseAEffet(colonne, numeroLigne));
                         break;
                     case PIEGE:
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute case
-                        this.caseEffet.add(new CasePiege(colonne,numeroLigne));
+                        this.caseEffet.add(new CasePiege(colonne, numeroLigne));
                         break;
                     default:
                         throw new Error("caractere inconnu " + c);
@@ -174,7 +174,7 @@ public class Labyrinthe {
      * gere la collision avec les murs et les autres entités
      *
      * @param action une des actions possibles
-     * @param e Entite qui se déplace
+     * @param e      Entite qui se déplace
      */
     public void deplacerEntite(String action, Entite e) {
         // case courante
@@ -185,19 +185,19 @@ public class Labyrinthe {
 
         // Recherche si une entité est déja présente
         boolean entitePresente = false;
-        for (Entite ent : this.entites){
-            if (ent.etrePresent(suivante[0],suivante[1])){
+        for (Entite ent : this.entites) {
+            if (ent.etrePresent(suivante[0], suivante[1])) {
                 entitePresente = true;
                 break;
             }
         }
         // si c'est pas un mur et s'il n'y a aucune entité, on effectue le deplacement
-        if (!this.getMur(suivante[0],suivante[1])&&!entitePresente) {
+        if (!this.getMur(suivante[0], suivante[1]) && !entitePresente) {
             // on met a jour personnage
             e.deplacer(action);
-            for (CaseAEffet cases : this.caseEffets){
+            for (CaseAEffet cases : this.caseEffets) {
                 int[] coord = cases.getPosition();
-                if (coord[0] == e.getX()&&coord[1]==e.getY()){
+                if (coord[0] == e.getX() && coord[1] == e.getY()) {
                     cases.activation(e);
                 }
             }
@@ -238,6 +238,7 @@ public class Labyrinthe {
 
     /**
      * return mur en (i,j)
+     *
      * @param x
      * @param y
      * @return
@@ -254,10 +255,11 @@ public class Labyrinthe {
         return this.pj;
     }
 
-    public ArrayList<Entite> getEntites(){
+    public ArrayList<Entite> getEntites() {
         return this.entites;
     }
 
-    public ArrayList<CaseAEffet> getCaseEffet(){
+    public ArrayList<CaseAEffet> getCaseEffet() {
         return this.caseEffet;
     }
+}
