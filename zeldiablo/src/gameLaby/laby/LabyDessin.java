@@ -104,7 +104,7 @@ public class LabyDessin implements DessinJeu {
                 }
                 for (CaseAEffet ca : laby.getCaseEffet()){
                     if(ca.getPosition()[0] == i && ca.getPosition()[1] == j){
-                        if(ca.getDecouvert == true){
+                        if(ca.getDecouvert() == true){
                             gc.setFill(Color.BROWN);
                         }
                         else {
