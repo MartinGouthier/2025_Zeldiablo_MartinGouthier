@@ -78,4 +78,4 @@ diagramme de classe :
 
 diagramme de séquence de activation :
 
-![image.png](attachment:6cc5b775-f38b-480e-a8bf-4c4cbcadc15c:image.png)
+![image.png](./DiagrammeSequenceActivation.png)
