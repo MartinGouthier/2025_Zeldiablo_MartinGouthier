@@ -1,0 +1,33 @@
+Gestion des Cases à Effet,
+Descriptif :
+Ajout de cases spéciales dans le labyrinthe qui déclenchent un effet quand une entité (héros ou monstre) les traverse.
+Les cases à effet sont traversables par les entités mais déclenchent un effet immédiat, pour l’instant affiché sur la console.
+Les cases à effet possèdent des coordonnées (x, y) et un attribut indiquant si elles ont été découvertes.
+
+Critères de validation :
+• Les cases à effet doivent être traversables par le joueur et les monstres.
+• Lorsqu’un héros ou un monstre marche sur une case à effet, un effet s’active et un message est affiché dans la console.
+• Les cases à effet sont créées et placées correctement lors de la génération du labyrinthe.
+• La méthode deplacerEntite() du labyrinthe doit gérer l’activation des effets lors du déplacement.
+• Les cases à effet doivent posséder des coordonnées (x, y) et un attribut découvert (boolean).
+• Une classe CaseEffet doit être créée, ainsi qu’une classe CasePiege qui hérite de CaseEffet.
+• Une méthode activation(Entite) doit être implémentée pour activer l’effet et afficher le message dans la console.
+• Les méthodes getPosition() (retournant un tableau [x, y]) et getDecouvert() doivent être implémentées pour permettre la gestion et l’affichage.
+
+1.5. Gestion des Cases Piégées
+Descriptif :
+Ajout de cases spéciales de type piège dans le labyrinthe. Lorsqu’une entité (héros ou monstre) entre sur une case piégée, elle subit immédiatement des dégâts. Une fois l’effet déclenché, le piège se désactive temporairement tant que la case est occupée. Dès que la case devient vide, le piège se réamorce.
+Une fois découverte, la case piégée peut être affichée différemment dans le labyrinthe (optionnellement en brun), permettant au joueur de l’identifier.
+
+Critères de validation :
+
+• Les cases piégées sont traversables par les entités (héros, monstres).
+• Lorsqu’une entité arrive sur une case piégée, elle subit des dégâts une seule fois tant qu’elle reste sur cette case.
+• Une fois la case vide, le piège se réactive.
+• La gestion de l’activation du piège est intégrée dans la méthode deplacerEntite() du labyrinthe.
+• Les cases piégées héritent de la classe CaseEffet et redéfinissent la méthode activation(Entite) pour infliger des dégâts à l’entité.
+• Une classe CasePiege doit être créée, avec un état interne indiquant si le piège est armé (réactivable).
+• L’effet (dégâts) est affiché dans la console lors de l’activation.
+• Si le joueur découvre la case comme piégée, elle s’affiche en brun dans le rendu du labyrinthe.
+• Les méthodes getPosition() et getDecouvert() doivent être implémentées pour gérer la détection et l’affichage.
+
