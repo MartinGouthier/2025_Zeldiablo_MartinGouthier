@@ -1,5 +1,3 @@
-import gameLaby.laby.CaseAEffet;
-import gameLaby.laby.Entite;
 import gameLaby.laby.Labyrinthe;
 import gameLaby.laby.Perso;
 import org.junit.jupiter.api.Test;
@@ -23,7 +21,6 @@ public class TestIteration2 {
         //init des valeurs
         Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
         Perso p = l.getPerso();
-        CaseAEffet cas = l.getCaseEffet().get(1);
         //modification des variables
         l.deplacerEntite(Labyrinthe.DROITE, p);
         //test des valeurs
@@ -40,7 +37,6 @@ public class TestIteration2 {
         //init des valeurs
         Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
         Perso p = l.getPerso();
-        CaseAEffet cas = l.getCaseEffet().get(1);
         //modification des variables
         l.deplacerEntite(Labyrinthe.DROITE, p);
         l.deplacerEntite(Labyrinthe.DROITE, p);
@@ -59,7 +55,6 @@ public class TestIteration2 {
         //init des valeurs
         Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
         Perso p = l.getPerso();
-        CaseAEffet cas = l.getCaseEffet().get(1);
         //modification des variables
         l.deplacerEntite(Labyrinthe.DROITE, p);
         l.deplacerEntite(Labyrinthe.DROITE, p);
@@ -72,7 +67,6 @@ public class TestIteration2 {
         //init des valeurs
         Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
         Perso p = l.getPerso();
-        CaseAEffet cas = l.getCaseEffet().get(1);
         //modification des variables
         l.deplacerEntite(Labyrinthe.DROITE, p);
         l.deplacerEntite(Labyrinthe.DROITE, p);
