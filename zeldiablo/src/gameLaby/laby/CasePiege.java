@@ -12,5 +12,7 @@ public class CasePiege extends CaseAEffet{
     public void activation(Entite e){
         e.modifierVie(-1);
         decouvert = true;
+        super.activation(e);
+        System.out.println(e + " est tombé dans un piège, -1 point de vie");
     }
 }
