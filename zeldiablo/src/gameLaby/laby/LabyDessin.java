@@ -90,7 +90,19 @@ public class LabyDessin implements DessinJeu {
                     gc.setFill(Color.WHITE);
                 }
                 gc.fillRect(i * largeur, j * hauteur, largeur, hauteur);
-    
+
+
+                for (CaseAEffet ca : laby.getCaseEffet()){
+                    if(ca.getPosition()[0] == i && ca.getPosition()[1] == j){
+                        if(ca.getDecouvert()){
+                            gc.setFill(ca.getColor());
+                        }
+                        else {
+                            gc.setFill(Color.WHITE);
+                        }
+                        gc.fillRect(i * largeur, j * hauteur, largeur, hauteur);
+                    }
+                }
                 // Dessine les entités présentes sur la case
                 for (Entite entite : laby.getEntites()) {
                     if (entite.etrePresent(i, j)) {
@@ -102,18 +114,9 @@ public class LabyDessin implements DessinJeu {
                         gc.fillOval(i * largeur, j * hauteur, largeur, hauteur);
                     }
                 }
-                for (CaseAEffet ca : laby.getCaseEffet()){
-                    if(ca.getPosition()[0] == i && ca.getPosition()[1] == j){
-                        if(ca.getDecouvert() == true){
-                            gc.setFill(ca.getColor());
-                        }
-                        else {
-                            gc.setFill(Color.WHITE);
-                        }
-                    }
-                }
             }
         }
+
         gc.setFill(Color.WHITE);
         gc.fillText("Pv : " + laby.getPerso().getVie(),30,30);
 
