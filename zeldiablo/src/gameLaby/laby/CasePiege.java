@@ -1,5 +1,7 @@
 package gameLaby.laby;
 
+import javafx.scene.paint.Color;
+
 /**
  * Classe représentant une case à piège
  */
@@ -39,5 +41,14 @@ public class CasePiege extends CaseAEffet{
     @Override
     public boolean getDecouvert(){
         return decouvert;
+    }
+
+    /**
+     * Renvoit la couleur associée à un piège
+     * @return Couleur marron
+     */
+    @Override
+    public Color getColor(){
+        return Color.BROWN;
     }
 }

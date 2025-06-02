@@ -1,5 +1,7 @@
 package gameLaby.laby;
 
+import javafx.scene.paint.Color;
+
 /**
  * Classe représentant les cases à effet
  */
@@ -12,6 +14,7 @@ public class CaseAEffet {
      * Coordonnée y
      */
     private int posy;
+
 
     /**
      * Constructeur de case à effet
@@ -45,5 +48,13 @@ public class CaseAEffet {
      */
     public boolean getDecouvert(){
         return true;
+    }
+
+    /**
+     * Renvoit la couleur associée à une case à effet
+     * @return Couleur bleue
+     */
+    public Color getColor(){
+        return Color.BLUE;
     }
 }
