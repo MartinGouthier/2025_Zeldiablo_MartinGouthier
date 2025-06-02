@@ -1,19 +1,49 @@
 package gameLaby.laby;
 
+/**
+ * Classe représentant les cases à effet
+ */
 public class CaseAEffet {
+    /**
+     * Coordonnée x
+     */
     private int posx;
+    /**
+     * Coordonnée y
+     */
     private int posy;
-    private String nomEffet = "Sans effet";
 
+    /**
+     * Constructeur de case à effet
+     * @param x Coordonnée x
+     * @param y Coordonnée y
+     */
     public CaseAEffet(int x, int y) {
         this.posx = x;
         this.posy = y;
     }
-    void activation(Entite e){
+
+    /**
+     * Methode activant l'effet de la case sur l'entité
+     * @param e Entité affectée
+     */
+    public void activation(Entite e){
         System.out.println("La case à la position : " + posx+","+posy + " a été activée");
     }
 
-    int[] getPosition(){
+    /**
+     * Methode renvoyant la position de la case
+     * @return Tableau de coordonnées
+     */
+    public int[] getPosition(){
         return new int[]{posx, posy};
+    }
+
+    /**
+     * Renvoit l'état de découverte de la case  effet
+     * @return Etat
+     */
+    public boolean getDecouvert(){
+        return true;
     }
 }
