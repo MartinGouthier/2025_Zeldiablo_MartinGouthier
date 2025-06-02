@@ -1,4 +1,4 @@
-4. Gestion des Cases à Effet,
+Gestion des Cases à Effet,
 Descriptif :
 Ajout de cases spéciales dans le labyrinthe qui déclenchent un effet quand une entité (héros ou monstre) les traverse.
 Les cases à effet sont traversables par les entités mais déclenchent un effet immédiat, pour l’instant affiché sur la console.
