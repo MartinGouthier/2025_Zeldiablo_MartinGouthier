@@ -257,4 +257,7 @@ public class Labyrinthe {
     public ArrayList<Entite> getEntites(){
         return this.entites;
     }
-}
+
+    public ArrayList<CaseAEffet> getCaseEffet(){
+        return this.caseEffet;
+    }

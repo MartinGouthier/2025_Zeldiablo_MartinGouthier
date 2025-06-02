@@ -102,6 +102,16 @@ public class LabyDessin implements DessinJeu {
                         gc.fillOval(i * largeur, j * hauteur, largeur, hauteur);
                     }
                 }
+                for (CaseAEffet ca : laby.getCaseEffet()){
+                    if(ca.getPosition()[0] == i && ca.getPosition()[1] == j){
+                        if(ca.getDecouvert == true){
+                            gc.setFill(Color.BROWN);
+                        }
+                        else {
+                            gc.setFill(Color.WHITE);
+                        }
+                    }
+                }
             }
         }
         gc.setFill(Color.WHITE);
