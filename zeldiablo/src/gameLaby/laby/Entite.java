@@ -1,5 +1,7 @@
 package gameLaby.laby;
 
+import javafx.scene.paint.Color;
+
 /**
  * Classe représantant une entité du labyrinthe
  */
@@ -104,4 +106,6 @@ public abstract class Entite {
                 break;
         }
     }
+
+    public abstract Color getColor();
 }

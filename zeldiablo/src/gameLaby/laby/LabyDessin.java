@@ -91,30 +91,29 @@ public class LabyDessin implements DessinJeu {
                 }
                 gc.fillRect(i * largeur, j * hauteur, largeur, hauteur);
 
-
-                for (CaseAEffet ca : laby.getCaseEffet()){
-                    if(ca.getPosition()[0] == i && ca.getPosition()[1] == j){
-                        if(ca.getDecouvert()){
-                            gc.setFill(ca.getColor());
-                        }
-                        else {
-                            gc.setFill(Color.WHITE);
-                        }
-                        gc.fillRect(i * largeur, j * hauteur, largeur, hauteur);
-                    }
-                }
-                // Dessine les entités présentes sur la case
-                for (Entite entite : laby.getEntites()) {
-                    if (entite.etrePresent(i, j)) {
-                        if (laby.pj.etrePresent(i, j)) {
-                            gc.setFill(Color.RED); // personnage joueur
-                        } else {
-                            gc.setFill(Color.PURPLE); // autre entité
-                        }
-                        gc.fillOval(i * largeur, j * hauteur, largeur, hauteur);
-                    }
-                }
             }
+        }
+        // Dessine les cases à effets
+        for (CaseAEffet ca : laby.getCaseEffet()){
+            int[] coords = ca.getPosition();
+
+            if(ca.getDecouvert()){
+                gc.setFill(ca.getColor());
+            }
+            else {
+                gc.setFill(Color.WHITE);
+            }
+            gc.fillRect(coords[0] * largeur, coords[1] * hauteur, largeur, hauteur);
+
+        }
+        // Dessine les entités présentes sur la case
+        for (Entite entite : laby.getEntites()) {
+            gc.setFill(entite.getColor());
+            int x = entite.getX();
+            int y = entite.getY();
+            gc.setFill(entite.getColor());
+            gc.fillOval(x * largeur, y * hauteur, largeur, hauteur);
+
         }
 
         gc.setFill(Color.WHITE);
