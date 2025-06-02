@@ -108,7 +108,7 @@ public class Labyrinthe {
         this.murs = new boolean[nbColonnes][nbLignes];
         this.pj = null;
         this.entites = new ArrayList<>();
-        this.caseEffet = new ArrayList<>();
+        this.caseEffets = new ArrayList<>();
 
         // lecture des cases
         String ligne = bfRead.readLine();
@@ -146,13 +146,13 @@ public class Labyrinthe {
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute case
-                        this.caseEffet.add(new CaseAEffet(colonne, numeroLigne));
+                        this.caseEffets.add(new CaseAEffet(colonne, numeroLigne));
                         break;
                     case PIEGE:
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute case
-                        this.caseEffet.add(new CasePiege(colonne, numeroLigne));
+                        this.caseEffets.add(new CasePiege(colonne, numeroLigne));
                         break;
                     default:
                         throw new Error("caractere inconnu " + c);
@@ -260,6 +260,6 @@ public class Labyrinthe {
     }
 
     public ArrayList<CaseAEffet> getCaseEffet() {
-        return this.caseEffet;
+        return this.caseEffets;
     }
 }
