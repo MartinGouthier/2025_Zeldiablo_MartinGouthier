@@ -25,7 +25,8 @@ public class TestIteration2 {
         Perso p = l.getPerso();
         CaseAEffet cas = l.getCaseEffet().get(1);
         l.deplacerEntite(Labyrinthe.DROITE, p);
-        assertEquals(6, p.getX(), "La position X doit être à 5");
+        l.deplacerEntite(Labyrinthe.DROITE, p);
+        assertEquals(7, p.getX(), "La position X doit être à 5");
         assertEquals(5, p.getY(), "La position Y doit être à 5");
     }
 
