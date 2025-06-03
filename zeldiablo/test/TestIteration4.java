@@ -59,4 +59,51 @@ public class TestIteration4 {
         assertFalse(peutTraverser, "Le fantôme ne devrait pas pouvoir traverser une case occupée");
     }
 
+    @Test
+    void AmuletteInitialisation() throws IOException {
+        Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
+        assertEquals(8, l.getAmulette().getPosition()[0],"la possition de l'amulette est 5");
+        assertEquals(5, l.getAmulette().getPosition()[1],"la possition de l'amulette est 8");
+    }
+
+    @Test
+    void AmuletteTraversable() throws IOException {
+        Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
+        Perso perso = l.getPerso();
+        Entite m = l.getEntites().get(1);
+        perso.deplacer(Labyrinthe.DROITE);
+        perso.deplacer(Labyrinthe.DROITE);
+        perso.deplacer(Labyrinthe.DROITE);
+        perso.deplacer(Labyrinthe.GAUCHE);
+        m.deplacer(Labyrinthe.DROITE);
+        m.deplacer(Labyrinthe.DROITE);
+        m.deplacer(Labyrinthe.DROITE);
+        m.deplacer(Labyrinthe.BAS);
+        assertEquals(7,perso.getPosition()[0]);
+        assertEquals(5,perso.getPosition()[1]);
+        assertEquals(8,m.getPosition()[0]);
+        assertEquals(5,m.getPosition()[1]);
+    }
+
+    @Test
+    void AmuletteDisparaitPrit() throws IOException {
+        Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
+        Perso perso = l.getPerso();
+        perso.deplacer(Labyrinthe.DROITE);
+        perso.deplacer(Labyrinthe.DROITE);
+        perso.deplacer(Labyrinthe.DROITE);
+        assertTrue(perso.aAmulette());
+    }
+
+    @Test
+    void PersoPossedeAmulette() throws IOException {
+        Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
+
+    }
+
+    @Test
+    void MonstreNePossedePasAmulette() throws IOException {
+        Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
+
+    }
 }
