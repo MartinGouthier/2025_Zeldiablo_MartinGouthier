@@ -26,4 +26,9 @@ public class Perso extends Entite{
     public Color getColor() {
         return Color.RED;
     }
+
+    @Override
+    public String toString() {
+        return "Perso";
+    }
 }

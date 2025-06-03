@@ -31,4 +31,9 @@ public class Monstre extends Entite{
     public Color getColor() {
         return Color.PURPLE;
     }
+
+    @Override
+    public String toString() {
+        return "Monstre";
+    }
 }

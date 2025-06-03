@@ -72,4 +72,6 @@ public abstract class Entite extends Element {
                 break;
         }
     }
+
+    public abstract String toString();
 }
