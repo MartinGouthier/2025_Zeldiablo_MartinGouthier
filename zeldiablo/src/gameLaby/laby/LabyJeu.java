@@ -55,7 +55,8 @@ public class LabyJeu implements Jeu {
         }
 
         // Actions des entités
-        for (Entite entite : laby.getEntites()){
+        for (int i=0;i<laby.getEntites().size();i++){
+            Entite entite = laby.getEntites().get(i);
             if (laby.getEntites().indexOf(entite) != 0){ // Si ce n'est pas le joueur
                 Random rand = new Random();
                 int n = rand.nextInt(10); // Une chance sur 10 pour faire une action
