@@ -109,10 +109,9 @@ public class LabyDessin implements DessinJeu {
         // Dessine les entités présentes sur la case
         for (Entite entite : laby.getEntites()) {
             gc.setFill(entite.getColor());
-            int x = entite.getX();
-            int y = entite.getY();
+            int[] coords = entite.getPosition();
             gc.setFill(entite.getColor());
-            gc.fillOval(x * largeur, y * hauteur, largeur, hauteur);
+            gc.fillOval(coords[0] * largeur, coords[1] * hauteur, largeur, hauteur);
 
         }
 

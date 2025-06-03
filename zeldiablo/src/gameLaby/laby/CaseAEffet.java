@@ -5,16 +5,7 @@ import javafx.scene.paint.Color;
 /**
  * Classe représentant les cases à effet
  */
-public class CaseAEffet {
-    /**
-     * Coordonnée x
-     */
-    private int posx;
-    /**
-     * Coordonnée y
-     */
-    private int posy;
-
+public class CaseAEffet extends Element{
 
     /**
      * Constructeur de case à effet
@@ -22,8 +13,7 @@ public class CaseAEffet {
      * @param y Coordonnée y
      */
     public CaseAEffet(int x, int y) {
-        this.posx = x;
-        this.posy = y;
+        super(x,y);
     }
 
     /**
@@ -31,16 +21,15 @@ public class CaseAEffet {
      * @param e Entité affectée
      */
     public void activation(Entite e){
-        System.out.println("La case à la position : " + posx+","+posy + " a été activée");
+        int[] coord = this.getPosition();
+        System.out.println("La case à la position : " +coord[0] +","+coord[1] + " a été activée");
     }
 
     /**
      * Methode renvoyant la position de la case
      * @return Tableau de coordonnées
      */
-    public int[] getPosition(){
-        return new int[]{posx, posy};
-    }
+
 
     /**
      * Renvoit l'état de découverte de la case  effet

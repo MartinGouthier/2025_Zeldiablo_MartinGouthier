@@ -176,7 +176,7 @@ public class Labyrinthe {
      */
     public void deplacerEntite(String action, Entite e) {
         // case courante
-        int[] courante = {e.getX(), e.getY()};
+        int[] courante = e.getPosition();
 
         // calcule case suivante
         int[] suivante = getSuivant(courante[0], courante[1], action);
@@ -195,7 +195,7 @@ public class Labyrinthe {
             e.deplacer(action);
             for (CaseAEffet cases : this.caseEffets) {
                 int[] coord = cases.getPosition();
-                if (coord[0] == e.getX() && coord[1] == e.getY()) {
+                if (suivante[0] == coord[0]&&suivante[1]==coord[1]) {
                     cases.activation(e);
                 }
             }

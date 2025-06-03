@@ -1,20 +1,11 @@
 package gameLaby.laby;
 
-import javafx.scene.paint.Color;
 
 /**
  * Classe représantant une entité du labyrinthe
  */
-public abstract class Entite {
+public abstract class Entite extends Element {
 
-    /**
-     * Position x de l'entité
-     */
-    private int x;
-    /**
-     * Position y de l'entité
-     */
-    private int y;
     /**
      * Vie de l'entité
      */
@@ -27,42 +18,17 @@ public abstract class Entite {
      * @param v Vie
      */
     public Entite(int x, int y, int v) {
-        this.x = x;
-        this.y = y;
+        super(x,y);
         this.vie = v;
     }
 
-    /**
-     * permet de savoir si l'entité est en x,y
-     *
-     * @param x position testee
-     * @param y position testee
-     * @return true si le personnage est bien en (dx,dy)
-     */
-    public boolean etrePresent(int x, int y) {
 
-        return (this.x == x && this.y == y);
-    }
 
     // ############################################
     // GETTER
     // ############################################
 
-    /**
-     * @return position x de l'entité
-     */
-    public int getX() {
-        // getter
-        return this.x;
-    }
 
-    /**
-     * @return position y de l'entité
-     */
-    public int getY() {
-        //getter
-        return this.y;
-    }
     /**
      * @return vie de l'entité
      */
@@ -93,19 +59,17 @@ public abstract class Entite {
     public void deplacer(String dir){
         switch (dir){
             case Labyrinthe.HAUT:
-                this.y --;
+                this.bougerY(-1);
                 break;
             case Labyrinthe.BAS:
-                this.y++;
+                this.bougerY(1);
                 break;
             case Labyrinthe.DROITE:
-                this.x++;
+                this.bougerX(1);
                 break;
             case Labyrinthe.GAUCHE:
-                this.x--;
+                this.bougerX(-1);
                 break;
         }
     }
-
-    public abstract Color getColor();
 }
