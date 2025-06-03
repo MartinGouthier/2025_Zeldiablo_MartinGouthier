@@ -14,6 +14,8 @@ public abstract class Element {
     public int[] getPosition(){
         return new int[]{x, y};
     }
+
+
     public void bougerX(int x){
         this.x += x;
     }

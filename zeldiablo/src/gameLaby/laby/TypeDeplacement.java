@@ -1,5 +1,5 @@
 package gameLaby.laby;
 
 public interface TypeDeplacement {
-    public void seDeplacer(Monstre m, Labyrinthe lab);
+    public void seDeplacer(Entite e, Labyrinthe lab);
 }
