@@ -1,0 +1,27 @@
+2.5. Monstres avec intelligence variable
+Descriptif :
+Ajout de monstres possédant différents niveaux d’intelligence, influençant leur comportement dans le labyrinthe.
+Chaque type de monstre (Orc, Troll, Fantôme) peut avoir une intelligence nulle, faible, moyenne ou forte, affectant leur manière de se déplacer.
+
+Critères de validation :
+Un monstre d’intelligence nulle reste immobile.
+
+Un monstre d’intelligence faible se déplace aléatoirement dans une direction possible.
+
+Un monstre d’intelligence moyenne se dirige vers le héros en ligne droite, sans tenir compte des obstacles.
+
+Un monstre d’intelligence forte utilise un algorithme pathfinding (comme A* ou BFS) pour se rapprocher du héros en contournant les obstacles.
+
+Plusieurs monstres avec des niveaux d’intelligence différents peuvent coexister dans le labyrinthe.
+
+Chaque type de monstre peut avoir n’importe quel niveau d’intelligence.
+
+Le labyrinthe de test final doit contenir au moins un monstre de chaque couple (type, intelligence) :
+
+Exemple : OrcNul, OrcFaible, OrcMoyen, OrcFort, TrollNul, ..., FantomeFort.
+
+La classe Monstre doit avoir un attribut intelligence (enum ou int) permettant de définir et d’appliquer le comportement associé.
+
+Les comportements doivent être implémentés dans une méthode deplacer() propre à chaque niveau d’intelligence.
+
+Le déplacement est géré à chaque tour par une méthode centralisée dans le labyrinthe (ex. deplacerTousLesMonstres()).
