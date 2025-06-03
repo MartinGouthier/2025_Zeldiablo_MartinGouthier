@@ -172,6 +172,7 @@ public class Labyrinthe {
                     case AMULETTE:
                         this.murs[colonne][numeroLigne] = false;
                         this.amulette = new Amulette(colonne,numeroLigne);
+                        break;
                     default:
                         throw new Error("caractere inconnu " + c);
                 }
