@@ -117,6 +117,8 @@ public class LabyDessin implements DessinJeu {
             gc.setFill(Color.WHITE);
             int[] coords = laby.getAmulette().getPosition();
             gc.fillOval(coords[0] * largeur, coords[1] * hauteur, largeur, hauteur);
+            gc.setFill(Color.YELLOW);
+            gc.fillOval( 70,15  ,20,20);
         }
 
         // Dessine les entités présentes sur la case
@@ -129,6 +131,7 @@ public class LabyDessin implements DessinJeu {
 
         gc.setFill(Color.WHITE);
         gc.fillText("Pv : " + laby.getPerso().getVie(),30,30);
+
 
 
     }
