@@ -174,7 +174,7 @@ public class Labyrinthe {
      * @param action une des actions possibles
      * @param e      Entite qui se déplace
      */
-    public void deplacerEntite(String action, Entite e) {
+    public void deplacerManuel(String action, Entite e) {
         // case courante
         int[] courante = {e.getX(), e.getY()};
 
