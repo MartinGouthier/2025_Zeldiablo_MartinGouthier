@@ -1,7 +1,15 @@
 package gameLaby.laby;
 
+/**
+ * Classe de déplacement manhattan
+ */
 public class DeplacementManhattan implements TypeDeplacement{
 
+    /**
+     * Methode de déplacement
+     * @param e Entitée déplacée
+     * @param laby Labyrinthe utilisé
+     */
     public void seDeplacer(Entite e, Labyrinthe laby) {
         int[] positionEntite = e.getPosition();
         int[] positionJoueur = laby.getPerso().getPosition();

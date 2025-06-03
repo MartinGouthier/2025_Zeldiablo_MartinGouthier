@@ -21,13 +21,9 @@ public abstract class Entite extends Element {
         super(x,y);
         this.vie = v;
     }
-
-
-
     // ############################################
     // GETTER
     // ############################################
-
 
     /**
      * @return vie de l'entité
@@ -73,5 +69,9 @@ public abstract class Entite extends Element {
         }
     }
 
+    /**
+     * Methode d'affichage du type d'entité
+     * @return Type d'entité
+     */
     public abstract String toString();
 }

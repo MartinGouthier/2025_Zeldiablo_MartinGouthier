@@ -16,11 +16,11 @@
 
 diagramme de classe :
 
-![DiagrammeIntelliJ](attachment:f37c83b9-c068-4367-a8f4-6e32f7bb1721:image.png)
+![DiagrammeIntelliJ](attachment:DiagrammeIntelliJ.png)
 
 DiagrammeIntelliJ
 
-![DiagrammeClasse](attachment:c6d5483c-37c8-4002-8d19-33f8c46f827c:11D43E9B-8309-44ED-A257-1B0B91AAF476.png)
+![DiagrammeClasse](attachment:DiagrammeClasse.png)
 
 DiagrammeClasse
 
@@ -34,7 +34,7 @@ Enfin, pour implémenter les déplacement, nous avons créée une interface “T
 
 ***diagramme de séquence de seDeplacer :***
 
-![DiagrammeSequence](attachment:a93acc25-20f6-48fd-ae6a-f532f9ee8fc3:Sequence_dep_monstre.png)
+![DiagrammeSequence](attachment:DiagrammeSequence.png)
 
 DiagrammeSequence
 
@@ -46,19 +46,19 @@ Pour cela, le main créer labyjeu pour ensuite le launch( ) qui lance la boucle 
 
 Screen :
 
-![screen/screen1](attachment:497bfd27-7f81-4e42-9fa5-dfe5cbd1ce41:image.png)
+![screen/screen1](attachment:screen/screen1.png)
 
 screen/screen1
 
 Il y a trois Monstre avec des intelligence différente, c’est a dire qu’il utilise des méthode de déplacement différente. le monstre en haut à gauche à une intelligence nulle donc il reste immobile, celui en bas à gauche à une intelligence faible donc il bouge aléatoirement entre les 4 directions et enfin le monstre au centre à une intelligence moyens donc il se dirige vers le Perso sans prendre en compte les murs.
 
-![screen/screen2](attachment:4cdaae12-5c2f-4334-aa0b-355666d5b47b:image.png)
+![screen/screen2](attachment:screen/screen2.png)
 
 screen/screen2
 
 Après quelque frames les monstres ont bougé et respect leurs intelligence, le monstre nulle reste immobile, le monstre faible à bouger sans prendre rien en compte complétement aléatoirement et le monstre moyens est allé vers le joueur.
 
-![screen/screen3](attachment:2fea82ff-d0aa-43ac-bde4-00e67725b090:image.png)
+![screen/screen3](attachment:screen/screen3.png)
 
 screen/screen3
 

@@ -1,5 +1,8 @@
 package gameLaby.laby;
 
+/**
+ * Interface des différents déplacements requis
+ */
 public interface TypeDeplacement {
-    public void seDeplacer(Entite e, Labyrinthe lab);
+    void seDeplacer(Entite e, Labyrinthe lab);
 }

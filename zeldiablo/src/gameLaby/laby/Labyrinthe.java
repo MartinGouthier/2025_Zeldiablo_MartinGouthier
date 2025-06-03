@@ -200,6 +200,12 @@ public class Labyrinthe {
 
     }
 
+    /**
+     * Methode indiquant si une case est traversable par une entité
+     * @param x Coordonnée x
+     * @param y Coordonnée y
+     * @return Indication si traversable
+     */
     public boolean estTraversable(int x, int y) {
         boolean res = false;
         boolean entitePresente = false;

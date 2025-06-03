@@ -26,13 +26,7 @@ public class CaseAEffet extends Element{
     }
 
     /**
-     * Methode renvoyant la position de la case
-     * @return Tableau de coordonnées
-     */
-
-
-    /**
-     * Renvoit l'état de découverte de la case  effet
+     * Renvoie l'état de découverte de la case  effet
      * @return Etat
      */
     public boolean getDecouvert(){
@@ -40,7 +34,7 @@ public class CaseAEffet extends Element{
     }
 
     /**
-     * Renvoit la couleur associée à une case à effet
+     * Renvoie la couleur associée à une case à effet
      * @return Couleur bleue
      */
     public Color getColor(){

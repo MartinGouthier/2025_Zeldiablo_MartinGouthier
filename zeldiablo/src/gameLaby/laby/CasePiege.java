@@ -36,7 +36,7 @@ public class CasePiege extends CaseAEffet{
 
     /**
      * Renvoit l'état de découverte du piège
-     * @return
+     * @return Etat de decouverte
      */
     @Override
     public boolean getDecouvert(){
