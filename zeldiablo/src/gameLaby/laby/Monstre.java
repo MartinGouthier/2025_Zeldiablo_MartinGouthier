@@ -7,16 +7,22 @@ import javafx.scene.paint.Color;
  */
 public class Monstre extends Entite{
 
+    private TypeDeplacement deplacement;
+
     /**
      * Constructeur de monstre
      * @param x Position x du monstre
      * @param y Position y du monstre
      * @param v Vie du monstre
      */
-    public Monstre(int x, int y, int v) {
+    public Monstre(int x, int y, int v, TypeDeplacement t) {
         super(x, y, v);
+        deplacement = t;
     }
 
+    public TypeDeplacement getDeplacement(){
+        return deplacement;
+    }
     /**
      * Renvoie la couleur d'affichage d'un monstre
      * @return Couleur violette
