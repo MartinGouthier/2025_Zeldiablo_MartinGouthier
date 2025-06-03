@@ -23,6 +23,8 @@ public class Labyrinthe {
     public static final char MONSTRE_DEPLACEMENT_MANHATTAN = '3';
     public static final char CASSEAEFFET = 'E';
     public static final char PIEGE = 'T';
+    public static final char FANTOME_DEPLACEMENT_FAIBLE= 'f';
+    public static final char FANTOME_DEPLACEMENT_MANHATTAN = 'F';
 
     /**
      * constantes actions possibles
@@ -153,6 +155,14 @@ public class Labyrinthe {
                         // ajoute case
                         this.caseEffets.add(new CaseAEffet(colonne, numeroLigne));
                         break;
+                    case FANTOME_DEPLACEMENT_FAIBLE:
+                        DeplacementFaible depf2 = new DeplacementFaible();
+                        this.entites.add(new Fantome(colonne, numeroLigne, 5, depf2));
+                        break;
+                    case FANTOME_DEPLACEMENT_MANHATTAN:
+                        DeplacementManhattan depm2 = new DeplacementManhattan();
+                        this.entites.add(new Fantome(colonne, numeroLigne, 5, depm2));
+
                     case PIEGE:
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
@@ -189,7 +199,7 @@ public class Labyrinthe {
         int[] suivante = getSuivant(courante[0], courante[1], action);
 
 
-        if(estTraversable(suivante[0], suivante[1])){
+        if(e.peutTraverser(action, this)){
             e.deplacer(action);
             for(CaseAEffet casee : caseEffets){
                 if(casee.etrePresent(suivante[0], suivante[1])){
