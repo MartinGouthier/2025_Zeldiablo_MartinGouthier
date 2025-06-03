@@ -15,6 +15,8 @@ public abstract class Element {
      */
     private int y;
 
+    private boolean estTraversable;
+
     /**
      * Constructeur d'element
      * @param x Coordonnée x
@@ -63,8 +65,20 @@ public abstract class Element {
     }
 
     /**
+     * Methode indiquant si une case est traversable par une entité
+     * @param x Coordonnée x
+     * @param y Coordonnée y
+     * @return Indication si traversable
+     */
+
+    /**
      * Getter de couleur associée à l'element
      * @return Couleur
      */
     public abstract Color getColor();
+
+    public boolean getTraversable(){
+        return this.estTraversable;
+    }
 }
+

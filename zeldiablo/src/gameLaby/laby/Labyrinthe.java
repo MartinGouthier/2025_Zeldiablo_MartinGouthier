@@ -200,27 +200,7 @@ public class Labyrinthe {
 
     }
 
-    /**
-     * Methode indiquant si une case est traversable par une entité
-     * @param x Coordonnée x
-     * @param y Coordonnée y
-     * @return Indication si traversable
-     */
-    public boolean estTraversable(int x, int y) {
-        boolean res = false;
-        boolean entitePresente = false;
-        for (Entite ent : this.entites) {
-            if (ent.etrePresent(x, y)) {
-                entitePresente = true;
-                break;
-            }
-        }
 
-        if (!this.getMur(x, y) && !entitePresente) {
-            res = true;
-        }
-        return res;
-    }
 
     /**
      *
