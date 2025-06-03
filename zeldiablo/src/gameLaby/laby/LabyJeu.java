@@ -38,19 +38,19 @@ public class LabyJeu implements Jeu {
 
         // déplace le personnage en fonction des actions clavier
         if (clavier.droite) {
-            this.laby.deplacerEntite(Labyrinthe.DROITE, laby.getPerso());
+            this.laby.deplacerManuel(Labyrinthe.DROITE, laby.getPerso());
         }
 
         if (clavier.gauche) {
-            this.laby.deplacerEntite(Labyrinthe.GAUCHE, laby.getPerso());
+            this.laby.deplacerManuel(Labyrinthe.GAUCHE, laby.getPerso());
         }
 
         if (clavier.haut) {
-            this.laby.deplacerEntite(Labyrinthe.HAUT, laby.getPerso());
+            this.laby.deplacerManuel(Labyrinthe.HAUT, laby.getPerso());
         }
 
         if (clavier.bas) {
-            this.laby.deplacerEntite(Labyrinthe.BAS, laby.getPerso());
+            this.laby.deplacerManuel(Labyrinthe.BAS, laby.getPerso());
         }
     }
 
