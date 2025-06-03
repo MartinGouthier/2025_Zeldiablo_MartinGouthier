@@ -35,15 +35,18 @@ public class Fantome extends Monstre{
      *
      * @return un booléen qui indique si l'on peut traverser.
      */
-
+    @Override
     public boolean peutTraverser(String dir,Labyrinthe laby){
 
-        int [] coord = laby.getSuivant(this.getPosition()[0],this.getPosition()[1],dir);
-        for(Entite e  : laby.getEntites()){
-            if(e.etrePresent(coord[0],coord[1])){
-                return e.getTraversable();
+        int [] coord = Labyrinthe.getSuivant(this.getPosition()[0],this.getPosition()[1],dir);
+            if (!(laby.getLength() > coord[0] && coord[0] >= 0 && laby.getLengthY() > coord[1] && coord[1] >= 0)){
+                return false;
             }
-        }
+            for(Entite e  : laby.getEntites()){
+                if(e.etrePresent(coord[0],coord[1])){
+                    return false;
+                }
+            }
         return true;
     }
 

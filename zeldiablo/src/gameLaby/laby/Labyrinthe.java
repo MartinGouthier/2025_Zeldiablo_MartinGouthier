@@ -33,7 +33,7 @@ public class Labyrinthe {
     public static final String BAS = "Bas";
     public static final String GAUCHE = "Gauche";
     public static final String DROITE = "Droite";
-
+    private int nbColonnes, nbLignes;
 
 
     /**
@@ -92,12 +92,10 @@ public class Labyrinthe {
         // ouvrir fichier
         FileReader fichier = new FileReader(nom);
         BufferedReader bfRead = new BufferedReader(fichier);
-
-        int nbLignes, nbColonnes;
         // lecture nblignes
-        nbLignes = Integer.parseInt(bfRead.readLine());
+        this.nbLignes = Integer.parseInt(bfRead.readLine());
         // lecture nbcolonnes
-        nbColonnes = Integer.parseInt(bfRead.readLine());
+        this.nbColonnes = Integer.parseInt(bfRead.readLine());
 
         // creation labyrinthe vide
         this.murs = new boolean[nbColonnes][nbLignes];

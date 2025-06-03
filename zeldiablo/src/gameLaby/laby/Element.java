@@ -15,7 +15,6 @@ public abstract class Element {
      */
     private int y;
 
-    private boolean estTraversable;
 
     /**
      * Constructeur d'element
@@ -77,8 +76,5 @@ public abstract class Element {
      */
     public abstract Color getColor();
 
-    public boolean getTraversable(){
-        return this.estTraversable;
-    }
 }
 

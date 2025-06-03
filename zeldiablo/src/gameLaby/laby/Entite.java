@@ -77,14 +77,14 @@ public abstract class Entite extends Element {
      */
     public boolean peutTraverser(String dir,Labyrinthe laby){
 
-        int [] coord = laby.getSuivant(this.getPosition()[0],this.getPosition()[1],dir);
-        if(laby.getMur(coord[0],coord[1]) == true){
+        int [] coord = Labyrinthe.getSuivant(this.getPosition()[0],this.getPosition()[1],dir);
+        if(laby.getMur(coord[0], coord[1])){
             return false;
         }
         else{
             for(Entite e  : laby.getEntites()){
                 if(e.etrePresent(coord[0],coord[1])){
-                    return e.getTraversable();
+                    return false;
                 }
             }
         }
