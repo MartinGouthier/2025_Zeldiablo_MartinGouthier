@@ -218,13 +218,6 @@ public class Labyrinthe {
     }
 
 
-    /**
-     * @return fin du jeu
-     */
-    public boolean etreFini() {
-        return false;
-    }
-
     // ##################################
     // GETTER
     // ##################################
