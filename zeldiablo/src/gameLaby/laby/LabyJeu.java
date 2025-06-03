@@ -6,6 +6,7 @@ import moteurJeu.Clavier;
 import moteurJeu.Jeu;
 
 import java.io.IOException;
+import java.util.Random;
 
 /**
  * Classe représentant un jeu de labyrinthe implémentant l'interface {@link Jeu}.
@@ -25,7 +26,7 @@ public class LabyJeu implements Jeu {
      * @throws IOException si le fichier du labyrinthe ne peut être lu.
      */
     public LabyJeu() throws IOException {
-        this.laby = new Labyrinthe("labySimple/laby1.txt");
+        this.laby = new Labyrinthe("labySimple/laby3.txt");
     }
 
     /**
@@ -51,6 +52,18 @@ public class LabyJeu implements Jeu {
 
         if (clavier.bas) {
             this.laby.deplacerManuel(Labyrinthe.BAS, laby.getPerso());
+        }
+
+        // Actions des entités
+        for (Entite entite : laby.getEntites()){
+            if (laby.getEntites().indexOf(entite) != 0){ // Si ce n'est pas le joueur
+                Random rand = new Random();
+                int n = rand.nextInt(10); // Une chance sur 10 pour faire une action
+                if (n==0) {
+                    Monstre m = (Monstre) entite;
+                    m.getDeplacement().seDeplacer(m, laby);
+                }
+            }
         }
     }
 
