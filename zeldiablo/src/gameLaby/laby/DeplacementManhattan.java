@@ -3,18 +3,25 @@ package gameLaby.laby;
 public class DeplacementManhattan implements TypeDeplacement{
 
     public void seDeplacer(Entite e, Labyrinthe laby) {
+        int[] positionEntite = e.getPosition();
+        int[] positionJoueur = laby.getPerso().getPosition();
 
-        if (e.getPosition()[0]<laby.getPerso().getPosition()[0]){
-            laby.deplacerManuel(Labyrinthe.DROITE,e);
+        int dx = Math.abs(positionEntite[0] - positionJoueur[0]);
+        int dy = Math.abs(positionEntite[1] - positionJoueur[1]);
+
+        if (dx > dy) {
+            if (positionEntite[0] < positionJoueur[0]) {
+                laby.deplacerManuel(Labyrinthe.DROITE, e);
+            } else if (positionEntite[0] > positionJoueur[0]) {
+                laby.deplacerManuel(Labyrinthe.GAUCHE, e);
+            }
         }
-        else if(e.getPosition()[0]>laby.getPerso().getPosition()[0]){
-            laby.deplacerManuel(Labyrinthe.GAUCHE, e);
-        }
-        else if(e.getPosition()[1]<laby.getPerso().getPosition()[1]){
-            laby.deplacerManuel(Labyrinthe.BAS, e);
-        }
-        else if(e.getPosition()[1]>laby.getPerso().getPosition()[1]){
-            laby.deplacerManuel(Labyrinthe.HAUT, e);
+        else {
+            if (positionEntite[1] < positionJoueur[1]) {
+                laby.deplacerManuel(Labyrinthe.BAS, e);
+            } else if (positionEntite[1] > positionJoueur[1]) {
+                laby.deplacerManuel(Labyrinthe.HAUT, e);
+            }
         }
     }
 }
