@@ -2,24 +2,49 @@ package gameLaby.laby;
 
 import javafx.scene.paint.Color;
 
+/**
+ * Classe Element representant un element quelconque du labyrinthe
+ */
 public abstract class Element {
+    /**
+     * Coordonnée x
+     */
     private int x;
+    /**
+     * Coordonnée y
+     */
     private int y;
 
+    /**
+     * Constructeur d'element
+     * @param x Coordonnée x
+     * @param y Coordonnée y
+     */
     public Element(int x, int y){
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * Getter de coordonnées
+     * @return Tableau de coordonnées
+     */
     public int[] getPosition(){
         return new int[]{x, y};
     }
 
-
+    /**
+     * Methode pour déplacer de x case horizontalement
+     * @param x valeur de déplacement
+     */
     public void bougerX(int x){
         this.x += x;
     }
 
+    /**
+     * Methode pour déplacer de y case verticalement
+     * @param y valeur de déplacement
+     */
     public void bougerY(int y){
         this.y += y;
     }
@@ -37,5 +62,9 @@ public abstract class Element {
         return (this.x == x && this.y == y);
     }
 
+    /**
+     * Getter de couleur associée à l'element
+     * @return Couleur
+     */
     public abstract Color getColor();
 }

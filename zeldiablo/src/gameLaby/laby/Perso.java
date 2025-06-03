@@ -27,6 +27,10 @@ public class Perso extends Entite{
         return Color.RED;
     }
 
+    /**
+     * Affichage du personnage console
+     * @return Perso
+     */
     @Override
     public String toString() {
         return "Perso";

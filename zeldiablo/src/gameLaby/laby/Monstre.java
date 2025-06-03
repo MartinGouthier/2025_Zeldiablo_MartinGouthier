@@ -32,6 +32,10 @@ public class Monstre extends Entite{
         return Color.PURPLE;
     }
 
+    /**
+     * Methode d'affichage du type d'entité
+     * @return Monstre
+     */
     @Override
     public String toString() {
         return "Monstre";
