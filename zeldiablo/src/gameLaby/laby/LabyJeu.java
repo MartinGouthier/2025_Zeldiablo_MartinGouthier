@@ -1,7 +1,5 @@
 package gameLaby.laby;
 
-import gameArkanoid.Balle;
-import gameArkanoid.Raquette;
 import moteurJeu.Clavier;
 import moteurJeu.Jeu;
 

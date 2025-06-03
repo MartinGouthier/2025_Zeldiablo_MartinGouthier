@@ -64,13 +64,6 @@ public abstract class Element {
     }
 
     /**
-     * Methode indiquant si une case est traversable par une entité
-     * @param x Coordonnée x
-     * @param y Coordonnée y
-     * @return Indication si traversable
-     */
-
-    /**
      * Getter de couleur associée à l'element
      * @return Couleur
      */
