@@ -18,7 +18,9 @@ public class Labyrinthe {
     public static final char MUR = 'X';
     public static final char PJ = 'P';
     public static final char VIDE = '.';
-    public static final char MONSTRE = 'M';
+    public static final char MONSTRE_DEPLACEMENT_NUL = '1';
+    public static final char MONSTRE_DEPLACEMENT_FAIBLE = '2';
+    public static final char MONSTRE_DEPLACEMENT_MANHATTAN = '3';
     public static final char CASSEAEFFET = 'E';
     public static final char PIEGE = 'T';
 
@@ -125,12 +127,26 @@ public class Labyrinthe {
                         // ajoute PJ
                         this.entites.addFirst(new Perso(colonne, numeroLigne));
                         break;
-                    case MONSTRE:
+                    case MONSTRE_DEPLACEMENT_NUL:
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute entité
-                        this.entites.add(new Monstre(colonne, numeroLigne, 5));
+                        DeplacementNul dep = new DeplacementNul();
+                        this.entites.add(new Monstre(colonne, numeroLigne, 5, dep));
                         break;
+                    case MONSTRE_DEPLACEMENT_FAIBLE:
+                        this.murs[colonne][numeroLigne] = false;
+                        // ajoute entité
+                        DeplacementFaible depf = new DeplacementFaible();
+                        this.entites.add(new Monstre(colonne, numeroLigne, 5, depf));
+                        break;
+                    case MONSTRE_DEPLACEMENT_MANHATTAN:
+                        this.murs[colonne][numeroLigne] = false;
+                        // ajoute entité
+                        DeplacementManhattan depm = new DeplacementManhattan();
+                        this.entites.add(new Monstre(colonne, numeroLigne, 5, depm));
+                        break;
+
                     case CASSEAEFFET:
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
