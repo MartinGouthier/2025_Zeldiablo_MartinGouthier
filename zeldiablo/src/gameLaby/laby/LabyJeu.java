@@ -62,6 +62,9 @@ public class LabyJeu implements Jeu {
                 if (n<=1) {
                     Monstre m = (Monstre) entite;
                     m.getDeplacement().seDeplacer(m, laby);
+                    if (!m.estVivant()){
+                        this.laby.getEntites().remove(m);
+                    }
                 }
             }
         }
