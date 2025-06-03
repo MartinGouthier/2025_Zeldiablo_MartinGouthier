@@ -69,6 +69,12 @@ public abstract class Entite extends Element {
         }
     }
 
+    /**
+     * Méthode qui permet de déterminer si dans une direction la case est traversable
+     * @param dir la direction vers laquelle on va se déplacer
+     * @param laby le labyrinthe dans lequel on interagit
+     * @return un booléen true si la case suivante est traversable, false sinon
+     */
     public boolean peutTraverser(String dir,Labyrinthe laby){
 
         int [] coord = laby.getSuivant(this.getPosition()[0],this.getPosition()[1],dir);
