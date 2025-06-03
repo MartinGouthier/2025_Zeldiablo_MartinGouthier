@@ -31,10 +31,6 @@ public class Labyrinthe {
     public static final String DROITE = "Droite";
 
 
-    /**
-     * attribut du personnage
-     */
-    public Perso pj;
 
     /**
      * les murs du labyrinthe
@@ -79,8 +75,7 @@ public class Labyrinthe {
             default:
                 throw new Error("action inconnue");
         }
-        int[] res = {x, y};
-        return res;
+        return new int[]{x, y};
     }
 
     /**
@@ -102,7 +97,6 @@ public class Labyrinthe {
 
         // creation labyrinthe vide
         this.murs = new boolean[nbColonnes][nbLignes];
-        this.pj = null;
         this.entites = new ArrayList<>();
         this.caseEffets = new ArrayList<>();
 
@@ -129,8 +123,7 @@ public class Labyrinthe {
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute PJ
-                        this.pj = new Perso(colonne, numeroLigne);
-                        this.entites.addFirst(pj);
+                        this.entites.addFirst(new Perso(colonne, numeroLigne));
                         break;
                     case MONSTRE:
                         // pas de mur
@@ -255,7 +248,7 @@ public class Labyrinthe {
      * @return le personnage
      */
     public Perso getPerso() {
-        return this.pj;
+        return (Perso)this.entites.getFirst();
     }
 
     /**
