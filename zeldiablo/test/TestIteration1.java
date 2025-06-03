@@ -1,4 +1,4 @@
-import com.sun.javafx.scene.EnteredExitedHandler;
+
 import gameLaby.laby.Entite;
 import gameLaby.laby.Labyrinthe;
 import gameLaby.laby.Monstre;

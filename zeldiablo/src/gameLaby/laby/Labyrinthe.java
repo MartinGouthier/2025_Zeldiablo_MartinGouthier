@@ -60,7 +60,7 @@ public class Labyrinthe {
      */
     private ArrayList<CaseAEffet> caseEffets;
 
-    static int[] getSuivant(int x, int y, String action) {
+    public static int[] getSuivant(int x, int y, String action) {
         switch (action) {
             case HAUT:
                 // on monte une ligne
