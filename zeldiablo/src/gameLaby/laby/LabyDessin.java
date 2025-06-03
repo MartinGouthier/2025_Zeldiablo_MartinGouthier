@@ -113,6 +113,12 @@ public class LabyDessin implements DessinJeu {
             gc.fillOval(coords[0] * largeur, coords[1] * hauteur, largeur, hauteur);
         }
 
+        if (laby.getPerso().aAmulette()){
+            gc.setFill(Color.WHITE);
+            int[] coords = laby.getAmulette().getPosition();
+            gc.fillOval(coords[0] * largeur, coords[1] * hauteur, largeur, hauteur);
+        }
+
         // Dessine les entités présentes sur la case
         for (Entite entite : laby.getEntites()) {
             gc.setFill(entite.getColor());
