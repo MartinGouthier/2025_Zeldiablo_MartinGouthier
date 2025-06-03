@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import com.sun.javafx.scene.EnteredExitedHandler;
+
 import gameLaby.laby.Entite;
 import gameLaby.laby.Labyrinthe;
 import gameLaby.laby.Perso;
