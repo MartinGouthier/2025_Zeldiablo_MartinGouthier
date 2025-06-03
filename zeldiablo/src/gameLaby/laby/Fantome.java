@@ -2,6 +2,9 @@ package gameLaby.laby;
 
 import javafx.scene.paint.Color;
 
+/**
+ * Classe de fantome, un fantome peut traverser des murs
+ */
 public class Fantome extends Monstre{
 
     /**
@@ -18,9 +21,9 @@ public class Fantome extends Monstre{
     }
 
     /**
-     * méthode getColor qui renvoie une couelur qu isera utilisée pour le fantome
+     * méthode getColor qui renvoie une couleur qui sera utilisée pour le fantome
      *
-     * @return une couleur
+     * @return Couleur cyan
      */
 
     public Color getColor(){
@@ -28,7 +31,7 @@ public class Fantome extends Monstre{
     }
 
     /**
-     * méthode peutTraverser pour savoir si le fantome peut traverser ce qu'il y a dans la dirrection où il va.
+     * méthode peutTraverser pour savoir si le fantome peut traverser ce qu'il y a dans la direction où il va.
      *
      * @param dir une direction
      * @param laby un labyrinthe

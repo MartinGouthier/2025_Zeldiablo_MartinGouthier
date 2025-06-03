@@ -116,18 +116,11 @@ public class LabyDessin implements DessinJeu {
         }
         // Affichage amulette
         if (laby.getAmulette() != null){
-            gc.setFill(Color.YELLOW);
+            gc.setFill(laby.getAmulette().getColor());
             int[] coords = laby.getAmulette().getPosition();
             gc.fillOval(coords[0] * largeur, coords[1] * hauteur, largeur, hauteur);
         }
 
-        if (laby.getPerso().aAmulette()){
-            gc.setFill(Color.WHITE);
-            int[] coords = laby.getAmulette().getPosition();
-            gc.fillOval(coords[0] * largeur, coords[1] * hauteur, largeur, hauteur);
-            gc.setFill(Color.YELLOW);
-            gc.fillOval( 70,15  ,20,20);
-        }
 
         // Dessine les entités présentes sur la case
         for (Entite entite : laby.getEntites()) {
@@ -137,6 +130,14 @@ public class LabyDessin implements DessinJeu {
             gc.fillOval(coords[0] * largeur, coords[1] * hauteur, largeur, hauteur);
         }
 
+        // Affichage menu
+        if (laby.getPerso().aAmulette()){
+            gc.setFill(Color.WHITE);
+            int[] coords = laby.getAmulette().getPosition();
+            gc.fillOval(coords[0] * largeur, coords[1] * hauteur, largeur, hauteur);
+            gc.setFill(Color.YELLOW);
+            gc.fillOval( 70,15  ,20,20);
+        }
         gc.setFill(Color.WHITE);
         gc.fillText("Pv : " + laby.getPerso().getVie(),30,30);
 

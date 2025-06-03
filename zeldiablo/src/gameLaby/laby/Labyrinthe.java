@@ -61,6 +61,13 @@ public class Labyrinthe {
      */
     private ArrayList<CaseAEffet> caseEffets;
 
+    /**
+     * Methode renvoyant la case suivante à partir de coordonnées et de l'action souhaitée
+     * @param x Coordonnée x
+     * @param y Coordonnée y
+     * @param action Deplacement souhaité
+     * @return Tableau de coordonnée
+     */
     public static int[] getSuivant(int x, int y, String action) {
         switch (action) {
             case HAUT:
@@ -288,10 +295,12 @@ public class Labyrinthe {
         return this.caseEffets;
     }
 
-
+    /**
+     * Methode contenant la condition de victoire
+     * @return Victoire ou non
+     */
     public boolean victoire() {
         return (this.getPerso().aAmulette() &&
-                this.getPerso().getPosition()[0] == positionDepart[0] &&
-                this.getPerso().getPosition()[1] == positionDepart[1]);
+                this.getPerso().etrePresent(positionDepart[0],positionDepart[1]));
     }
 }

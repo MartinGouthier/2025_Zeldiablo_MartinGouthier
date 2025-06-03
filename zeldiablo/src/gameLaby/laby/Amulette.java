@@ -2,6 +2,9 @@ package gameLaby.laby;
 
 import javafx.scene.paint.Color;
 
+/**
+ * Classe créant une amulette
+ */
 public class Amulette extends Element{
     /**
      * Constructeur d'element
@@ -14,6 +17,10 @@ public class Amulette extends Element{
     }
 
 
+    /**
+     * Getter de couleur
+     * @return Couleur jaune
+     */
     @Override
     public Color getColor() {
         return Color.YELLOW;

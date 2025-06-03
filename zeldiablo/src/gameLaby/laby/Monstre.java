@@ -7,6 +7,9 @@ import javafx.scene.paint.Color;
  */
 public class Monstre extends Entite{
 
+    /**
+     * Type de déplacement du monstre
+     */
     private TypeDeplacement deplacement;
 
     /**
@@ -20,6 +23,10 @@ public class Monstre extends Entite{
         deplacement = t;
     }
 
+    /**
+     * Getter deplacement
+     * @return
+     */
     public TypeDeplacement getDeplacement(){
         return deplacement;
     }

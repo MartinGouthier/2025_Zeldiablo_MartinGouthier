@@ -8,10 +8,13 @@ import javafx.scene.paint.Color;
  */
 public class Perso extends Entite{
 
+    /**
+     * Booléen indiquant si le personnage possède l'amulette
+     */
     private boolean possedeAmulette;
 
     /**
-     * Consctructeur personnage
+     * Constructeur personnage
      * @param x Coordonnée x
      * @param y Coordonnée y
      */
@@ -39,6 +42,10 @@ public class Perso extends Entite{
         return "Perso";
     }
 
+    /**
+     * Getter Amulette
+     * @return Booléen si amulette est possedée
+     */
     public boolean aAmulette(){
         return this.possedeAmulette;
     }
