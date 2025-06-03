@@ -25,6 +25,7 @@ public class Labyrinthe {
     public static final char PIEGE = 'T';
     public static final char FANTOME_DEPLACEMENT_FAIBLE= 'f';
     public static final char FANTOME_DEPLACEMENT_MANHATTAN = 'F';
+    public static final char AMULETTE = 'A';
 
     /**
      * constantes actions possibles
@@ -34,6 +35,7 @@ public class Labyrinthe {
     public static final String GAUCHE = "Gauche";
     public static final String DROITE = "Droite";
     private int nbColonnes, nbLignes;
+    private Amulette amulette;
 
 
     /**
@@ -167,6 +169,9 @@ public class Labyrinthe {
                         // ajoute case
                         this.caseEffets.add(new CasePiege(colonne, numeroLigne));
                         break;
+                    case AMULETTE:
+                        this.murs[colonne][numeroLigne] = false;
+                        this.amulette = new Amulette(colonne,numeroLigne);
                     default:
                         throw new Error("caractere inconnu " + c);
                 }
