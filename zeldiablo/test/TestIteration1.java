@@ -36,8 +36,8 @@ public class TestIteration1 {
         Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
         Perso p = l.getPerso();
         assertEquals(5, p.getVie(), "La vie doit être à 5");
-        assertEquals(5, p.getX(), "La position X doit être à 5");
-        assertEquals(5, p.getY(), "La position Y doit être à 5");
+        assertEquals(5, p.getPosition()[0], "La position X doit être à 5");
+        assertEquals(5, p.getPosition()[1], "La position Y doit être à 5");
     }
 
     /**
@@ -72,8 +72,8 @@ public class TestIteration1 {
         Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
         Entite m = l.getEntites().get(1);
         assertEquals(5, m.getVie(), "La vie doit être à 5");
-        assertEquals(5, m.getX(), "La position X doit être à 5");
-        assertEquals(4, m.getY(), "La position Y doit être à 5");
+        assertEquals(5, m.getPosition()[0], "La position X doit être à 5");
+        assertEquals(4, m.getPosition()[1], "La position Y doit être à 5");
     }
 
     /**
@@ -85,7 +85,7 @@ public class TestIteration1 {
         Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
         Perso p = l.getPerso();
         Entite m = l.getEntites().get(1);
-        assertTrue(!p.etrePresent(m.getX(), m.getY()), "Leurs positions doivent être différentes");
+        assertTrue(!p.etrePresent(m.getPosition()[0], m.getPosition()[1]), "Leurs positions doivent être différentes");
     }
 
     /**
@@ -98,8 +98,9 @@ public class TestIteration1 {
         Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
         Perso p = l.getPerso();
         Entite m = l.getEntites().get(1);
-        l.deplacerEntite(Labyrinthe.HAUT, p);
-        assertEquals(5, p.getX(), "La position X doit être à 5");
-        assertEquals(5, p.getY(), "La position Y doit être à 5");
+        l.getPerso().deplacer(Labyrinthe.HAUT);
+        l.getPerso().deplacer(Labyrinthe.HAUT);
+        assertEquals(5, p.getPosition()[0], "La position X doit être à 5");
+        assertEquals(5, p.getPosition()[1], "La position Y doit être à 5");
     }
 }

@@ -22,10 +22,10 @@ public class TestIteration2 {
         Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
         Perso p = l.getPerso();
         //modification des variables
-        l.deplacerEntite(Labyrinthe.DROITE, p);
+        p.deplacer(Labyrinthe.DROITE);
         //test des valeurs
-        assertEquals(6, p.getX(), "La position X doit être à 6");
-        assertEquals(5, p.getY(), "La position Y doit être à 5");
+        assertEquals(6, p.getPosition()[0], "La position X doit être à 6");
+        assertEquals(5, p.getPosition()[0], "La position Y doit être à 5");
     }
 
     /**
@@ -38,11 +38,11 @@ public class TestIteration2 {
         Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
         Perso p = l.getPerso();
         //modification des variables
-        l.deplacerEntite(Labyrinthe.DROITE, p);
-        l.deplacerEntite(Labyrinthe.DROITE, p);
+        p.deplacer(Labyrinthe.DROITE);
+        p.deplacer(Labyrinthe.DROITE);
         //test des valeurs
-        assertEquals(7, p.getX(), "La position X doit être à 7");
-        assertEquals(5, p.getY(), "La position Y doit être à 5");
+        assertEquals(7, p.getPosition()[0], "La position X doit être à 7");
+        assertEquals(5, p.getPosition()[0], "La position Y doit être à 5");
     }
 
     /**
@@ -56,8 +56,8 @@ public class TestIteration2 {
         Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
         Perso p = l.getPerso();
         //modification des variables
-        l.deplacerEntite(Labyrinthe.DROITE, p);
-        l.deplacerEntite(Labyrinthe.DROITE, p);
+        l.getPerso().deplacer(Labyrinthe.DROITE);
+        l.getPerso().deplacer(Labyrinthe.DROITE);
         //test des valeurs
         assertEquals(4,p.getVie(),"La vie du personnage est de 4");
     }
@@ -68,10 +68,10 @@ public class TestIteration2 {
         Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
         Perso p = l.getPerso();
         //modification des variables
-        l.deplacerEntite(Labyrinthe.DROITE, p);
-        l.deplacerEntite(Labyrinthe.DROITE, p);
-        l.deplacerEntite(Labyrinthe.DROITE, p);
-        l.deplacerEntite(Labyrinthe.GAUCHE, p);
+        p.deplacer(Labyrinthe.DROITE);
+        p.deplacer(Labyrinthe.DROITE);
+        p.deplacer(Labyrinthe.DROITE);
+        p.deplacer(Labyrinthe.GAUCHE);
         //test des valeurs
         assertEquals(3,p.getVie(),"La vie du personnage est de 3");
     }
