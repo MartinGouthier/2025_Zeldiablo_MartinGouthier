@@ -9,6 +9,6 @@ public class TestIteration4 {
     @Test
     public void FantomeTraverseMur() throws IOException {
         Labyrinthe l = new Labyrinthe("labySimple/laby3.txt");
-        Perso p = l.getPerso();
+        l.deplacerManuel(Labyrinthe.GAUCHE,);
     }
 }
