@@ -174,7 +174,7 @@ public class Labyrinthe {
                         break;
                     case AMULETTE:
                         this.murs[colonne][numeroLigne] = false;
-                        this.amulette = new Amulette(colonne, numeroLigne);
+                        this.amulette = new Amulette(colonne,numeroLigne);
                         break;
                     default:
                         throw new Error("caractere inconnu " + c);
@@ -217,13 +217,6 @@ public class Labyrinthe {
 
     }
 
-
-    /**
-     * @return fin du jeu
-     */
-    public boolean etreFini() {
-        return false;
-    }
 
     // ##################################
     // GETTER

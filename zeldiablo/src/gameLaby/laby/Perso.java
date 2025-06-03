@@ -17,6 +17,7 @@ public class Perso extends Entite{
      */
     public Perso(int x, int y) {
         super(x, y, 5);
+        possedeAmulette = false;
     }
 
 
