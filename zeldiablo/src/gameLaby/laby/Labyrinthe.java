@@ -181,26 +181,11 @@ public class Labyrinthe {
         // calcule case suivante
         int[] suivante = getSuivant(courante[0], courante[1], action);
 
-        // Recherche si une entité est déja présente
-        boolean entitePresente = false;
-        for (Entite ent : this.entites) {
-            if (ent.etrePresent(suivante[0], suivante[1])) {
-                entitePresente = true;
-                break;
-            }
-        }
-        // si c'est pas un mur et s'il n'y a aucune entité, on effectue le deplacement
-        if (!this.getMur(suivante[0], suivante[1]) && !entitePresente) {
-            // on met a jour personnage
-            e.deplacer(action);
-            for (CaseAEffet cases : this.caseEffets) {
-                int[] coord = cases.getPosition();
-                if (suivante[0] == coord[0]&&suivante[1]==coord[1]) {
-                    cases.activation(e);
-                }
-            }
-        }
+
+        if(estTraversable(suivante[0], suivante[1])){e.deplacer(action);}
+
     }
+
     public boolean estTraversable(int x, int y) {
         boolean res = false;
         boolean entitePresente = false;
@@ -218,7 +203,6 @@ public class Labyrinthe {
     }
 
     /**
-     * jamais fini
      *
      * @return fin du jeu
      */
