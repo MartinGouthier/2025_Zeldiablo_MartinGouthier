@@ -41,8 +41,6 @@ public class Labyrinthe {
      */
     public boolean[][] murs;
 
-    public ArrayList<CaseAEffet> caseEffet;
-
     /**
      * Liste des entités du labyrinthe
      */
@@ -182,7 +180,14 @@ public class Labyrinthe {
         int[] suivante = getSuivant(courante[0], courante[1], action);
 
 
-        if(estTraversable(suivante[0], suivante[1])){e.deplacer(action);}
+        if(estTraversable(suivante[0], suivante[1])){
+            e.deplacer(action);
+            for(CaseAEffet casee : caseEffets){
+                if(casee.etrePresent(suivante[0], suivante[1])){
+                    casee.activation(e);
+                }
+            }
+        }
 
     }
 
@@ -192,6 +197,7 @@ public class Labyrinthe {
         for (Entite ent : this.entites) {
             if (ent.etrePresent(x, y)) {
                 entitePresente = true;
+
                 break;
             }
         }
