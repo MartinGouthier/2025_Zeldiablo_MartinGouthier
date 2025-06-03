@@ -23,7 +23,7 @@ public class Labyrinthe {
     public static final char MONSTRE_DEPLACEMENT_MANHATTAN = '3';
     public static final char CASSEAEFFET = 'E';
     public static final char PIEGE = 'T';
-    public static final char FANTOME_DEPLACEMENT_FAIBLE= 'f';
+    public static final char FANTOME_DEPLACEMENT_FAIBLE = 'f';
     public static final char FANTOME_DEPLACEMENT_MANHATTAN = 'F';
     public static final char AMULETTE = 'A';
 
@@ -174,7 +174,7 @@ public class Labyrinthe {
                         break;
                     case AMULETTE:
                         this.murs[colonne][numeroLigne] = false;
-                        this.amulette = new Amulette(colonne,numeroLigne);
+                        this.amulette = new Amulette(colonne, numeroLigne);
                         break;
                     default:
                         throw new Error("caractere inconnu " + c);
@@ -218,9 +218,7 @@ public class Labyrinthe {
     }
 
 
-
     /**
-     *
      * @return fin du jeu
      */
     public boolean etreFini() {
@@ -263,14 +261,16 @@ public class Labyrinthe {
 
     /**
      * Getter Perso
+     *
      * @return le personnage
      */
     public Perso getPerso() {
-        return (Perso)this.entites.getFirst();
+        return (Perso) this.entites.getFirst();
     }
 
     /**
      * Getter Amulette
+     *
      * @return l'Amulette
      */
     public Amulette getAmulette() {
@@ -279,6 +279,7 @@ public class Labyrinthe {
 
     /**
      * Getter Liste d'entité
+     *
      * @return Liste d'entité
      */
     public ArrayList<Entite> getEntites() {
@@ -287,6 +288,7 @@ public class Labyrinthe {
 
     /**
      * Getter Liste de cases à effet
+     *
      * @return Liste de cases à effets
      */
     public ArrayList<CaseAEffet> getCaseEffet() {
@@ -295,5 +297,6 @@ public class Labyrinthe {
 
 
     public boolean victoire() {
-        return (this.getPerso().aAmulette() && this.getPerso().getPosition()==positionDepart);
+        return (this.getPerso().aAmulette() && this.getPerso().getPosition() == positionDepart);
     }
+}
