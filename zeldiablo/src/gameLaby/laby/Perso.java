@@ -48,25 +48,15 @@ public class Perso extends Entite{
      * @param laby le labyrinthe dans lequel on interagit
      * @return un booléen true si la case suivante est traversable, false sinon
      */
-    public boolean peutTraverser(String dir,Labyrinthe laby){
-
-        int [] coord = Labyrinthe.getSuivant(this.getPosition()[0],this.getPosition()[1],dir);
-        if(laby.getAmulette().getPosition()[0] == coord[0] && laby.getAmulette().getPosition()[1] == coord[1]){
-            this.possedeAmulette = true;
+    public boolean peutTraverser(String dir, Labyrinthe laby) {
+        if (super.peutTraverser(dir, laby)) {
+            int[] coord = Labyrinthe.getSuivant(this.getPosition()[0], this.getPosition()[1], dir);
+            if (laby.getAmulette().getPosition()[0] == coord[0] && laby.getAmulette().getPosition()[1] == coord[1]) {
+                this.possedeAmulette = true;
+            }
             return true;
         }
-
-        if(laby.getMur(coord[0], coord[1])){
-            return false;
-        }
-        else{
-            for(Entite e  : laby.getEntites()){
-                if(e.etrePresent(coord[0],coord[1])){
-                    return false;
-                }
-            }
-        }
-        return true;
+        return false;
     }
 
 }
