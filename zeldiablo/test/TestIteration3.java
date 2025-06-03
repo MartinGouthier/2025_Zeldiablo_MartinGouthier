@@ -143,11 +143,9 @@ public class TestIteration3 {
     public void test05_deplacementIntelligenceAleatoire() throws IOException {
         Labyrinthe l = new Labyrinthe("labySimple/laby3.txt");
         Perso p = l.getPerso();
-        Monstre mFaible = (Monstre) l.getEntites().get(1);
+        Monstre mFaible = (Monstre) l.getEntites().get(3);
         mFaible.getDeplacement().seDeplacer(mFaible,l);
-
-        assertEquals(20, mFaible.getPosition()[0], "La position x du personnage doit être 5");
-        assertEquals(7, mFaible.getPosition()[1], "La position y du personnage doit être 5");
+        assertTrue(mFaible.etrePresent(4,13) || mFaible.etrePresent(4,11) || mFaible.etrePresent(3,12) || mFaible.etrePresent(5,12));
 
     }
 

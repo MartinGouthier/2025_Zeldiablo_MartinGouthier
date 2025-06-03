@@ -2,7 +2,7 @@
 
 <aside>
 
-**Conception :** Logan, Alexis
+**Conception :** Logan, Alexis, Martin
 
 **Implémentation :** Yanis, Jassem
 
@@ -10,13 +10,19 @@
 
 **Classe :** Martin
 
-**Tests :** Logan (cette fripouille)
+**Tests :** Logan 
 
 </aside>
 
 diagramme de classe :
 
-![{43E5A60F-71D5-4D40-AD31-6C0AADC8BB61}.png](attachment:diagrammeClasse.png)
+![DiagrammeIntelliJ](attachment:DiagrammeIntelliJ.png)
+
+DiagrammeIntelliJ
+
+![DiagrammeClasse](attachment:DiagrammeClasse.png)
+
+DiagrammeClasse
 
 [Code](https://www.notion.so/Code-20767c381a9b80639018ed8d918568e1?pvs=21)
 
@@ -28,13 +34,35 @@ Enfin, pour implémenter les déplacement, nous avons créée une interface “T
 
 ***diagramme de séquence de seDeplacer :***
 
-![Sequence dep monstre.png](attachment:diagrammeSequence.png)
+![DiagrammeSequence](attachment:DiagrammeSequence.png)
+
+DiagrammeSequence
 
 [Code](https://www.notion.so/Code-20767c381a9b80ef92d1c73d3fa493e8?pvs=21)
 
 Pour comprendre comment marche le déplacement d’un monstre, il faut ce rendre dans la boucle du jeu qui ce trouve dans LabyJeu dans la méthode update( ) qui vérifie et modifie les variables comme le joueur et les monstres pour chaque frames.
 
 Pour cela, le main créer labyjeu pour ensuite le launch( ) qui lance la boucle de jeu dans MoteurJeu. Ainsi dans la boucle, il va récupérer chaque Entité de la liste, ici seul le monstre s’y trouve. Pour ensuite exécuter chaque Type de déplacement pour chaque Entités dans la liste sans savoir quelle vas être ce type car c’est l’appel à l’Entité qui vas ensuite déterminé vers quelle méthode de déplacement se dirigé. Ici le type de déplacement du Monstre est deplacerAleatoire donc il vas éxecuter la méthode seDeplacer( ) de la classe deplacerAleatoire.
+
+Screen :
+
+![screen/screen1](attachment:screen/screen1.png)
+
+screen/screen1
+
+Il y a trois Monstre avec des intelligence différente, c’est a dire qu’il utilise des méthode de déplacement différente. le monstre en haut à gauche à une intelligence nulle donc il reste immobile, celui en bas à gauche à une intelligence faible donc il bouge aléatoirement entre les 4 directions et enfin le monstre au centre à une intelligence moyens donc il se dirige vers le Perso sans prendre en compte les murs.
+
+![screen/screen2](attachment:screen/screen2.png)
+
+screen/screen2
+
+Après quelque frames les monstres ont bougé et respect leurs intelligence, le monstre nulle reste immobile, le monstre faible à bouger sans prendre rien en compte complétement aléatoirement et le monstre moyens est allé vers le joueur.
+
+![screen/screen3](attachment:screen/screen3.png)
+
+screen/screen3
+
+Si le joueur ce place derrière un mur, le monstre moyens reste bloquer sans bouger, ou plutôt en essayer de bouger dans un mur.
 
 ## Optimisation :  Création de la classe `Element`
 
@@ -85,7 +113,6 @@ Méthodes `boolean estTraversable(x,y)`
 • Un monstre d'intelligence faible se déplace au hasard.
 • Un monstre d'intelligence moyenne cherche à se rapprocher du héros sans prendre
 en compte les obstacles.
-• Un monstre d'intelligence forte se rapproche du héros en évitant les obstacles.
 • Plusieurs monstres avec des intelligences différentes peuvent être présents dans le
 même labyrinthe.
 • Chaque type de monstre (Orc, Fantome, Troll) peut avoir n'importe quel type
