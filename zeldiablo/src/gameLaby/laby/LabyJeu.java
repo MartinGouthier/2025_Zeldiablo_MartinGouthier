@@ -89,6 +89,10 @@ public class LabyJeu implements Jeu {
         if (!this.laby.getPerso().estVivant()){
             System.out.println("Le jeu est fini car le personnage est mort");
             return true;
+        } else if (!this.laby.victoire()) {
+            System.out.println("Le jeu est fini car vous avez placé l'amulette");
+            return true;
+
         }
         return false;
     }
