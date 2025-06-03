@@ -24,7 +24,7 @@ public class Fantome extends Monstre{
      */
 
     public Color getColor(){
-        return Color.BEIGE;
+        return Color.CYAN;
     }
 
     /**
