@@ -23,10 +23,11 @@ public class Labyrinthe {
     public static final char MONSTRE_DEPLACEMENT_MANHATTAN = '3';
     public static final char CASSEAEFFET = 'E';
     public static final char PIEGE = 'T';
-    public static final char FANTOME_DEPLACEMENT_FAIBLE= 'f';
+    public static final char FANTOME_DEPLACEMENT_FAIBLE = 'f';
     public static final char FANTOME_DEPLACEMENT_MANHATTAN = 'F';
     public static final char AMULETTE = 'A';
 
+    int[] positionDepart;
     /**
      * constantes actions possibles
      */
@@ -128,6 +129,8 @@ public class Labyrinthe {
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute PJ
                         this.entites.addFirst(new Perso(colonne, numeroLigne));
+
+                        positionDepart = new int[]{colonne, numeroLigne};
                         break;
                     case MONSTRE_DEPLACEMENT_NUL:
                         // pas de mur
@@ -203,10 +206,10 @@ public class Labyrinthe {
         int[] suivante = getSuivant(courante[0], courante[1], action);
 
 
-        if(e.peutTraverser(action, this)){
+        if (e.peutTraverser(action, this)) {
             e.deplacer(action);
-            for(CaseAEffet casee : caseEffets){
-                if(casee.etrePresent(suivante[0], suivante[1])){
+            for (CaseAEffet casee : caseEffets) {
+                if (casee.etrePresent(suivante[0], suivante[1])) {
                     casee.activation(e);
                 }
             }
@@ -215,9 +218,7 @@ public class Labyrinthe {
     }
 
 
-
     /**
-     *
      * @return fin du jeu
      */
     public boolean etreFini() {
@@ -260,14 +261,16 @@ public class Labyrinthe {
 
     /**
      * Getter Perso
+     *
      * @return le personnage
      */
     public Perso getPerso() {
-        return (Perso)this.entites.getFirst();
+        return (Perso) this.entites.getFirst();
     }
 
     /**
      * Getter Amulette
+     *
      * @return l'Amulette
      */
     public Amulette getAmulette() {
@@ -276,6 +279,7 @@ public class Labyrinthe {
 
     /**
      * Getter Liste d'entité
+     *
      * @return Liste d'entité
      */
     public ArrayList<Entite> getEntites() {
@@ -284,9 +288,15 @@ public class Labyrinthe {
 
     /**
      * Getter Liste de cases à effet
+     *
      * @return Liste de cases à effets
      */
     public ArrayList<CaseAEffet> getCaseEffet() {
         return this.caseEffets;
+    }
+
+
+    public boolean victoire() {
+        return (this.getPerso().aAmulette() && this.getPerso().getPosition() == positionDepart);
     }
 }
