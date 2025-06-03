@@ -206,7 +206,6 @@ public class Labyrinthe {
         for (Entite ent : this.entites) {
             if (ent.etrePresent(x, y)) {
                 entitePresente = true;
-
                 break;
             }
         }
