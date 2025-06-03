@@ -266,6 +266,14 @@ public class Labyrinthe {
     }
 
     /**
+     * Getter Amulette
+     * @return l'Amulette
+     */
+    public Amulette getAmulette() {
+        return this.amulette;
+    }
+
+    /**
      * Getter Liste d'entité
      * @return Liste d'entité
      */

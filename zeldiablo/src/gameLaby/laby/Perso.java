@@ -8,6 +8,8 @@ import javafx.scene.paint.Color;
  */
 public class Perso extends Entite{
 
+    private boolean possedeAmulette;
+
     /**
      * Consctructeur personnage
      * @param x Coordonnée x
@@ -35,4 +37,36 @@ public class Perso extends Entite{
     public String toString() {
         return "Perso";
     }
+
+    public boolean aAmulette(){
+        return this.possedeAmulette;
+    }
+
+    /**
+     * Redéfinition de la méthode qui permet de déterminer si dans une direction la case est traversable. On vérifie maintenant qu'on récupère l'amulette.
+     * @param dir la direction vers laquelle on va se déplacer
+     * @param laby le labyrinthe dans lequel on interagit
+     * @return un booléen true si la case suivante est traversable, false sinon
+     */
+    public boolean peutTraverser(String dir,Labyrinthe laby){
+
+        int [] coord = Labyrinthe.getSuivant(this.getPosition()[0],this.getPosition()[1],dir);
+        if(laby.getAmulette().getPosition()[0] == coord[0] && laby.getAmulette().getPosition()[1] == coord[1]){
+            this.possedeAmulette = true;
+            return true;
+        }
+
+        if(laby.getMur(coord[0], coord[1])){
+            return false;
+        }
+        else{
+            for(Entite e  : laby.getEntites()){
+                if(e.etrePresent(coord[0],coord[1])){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 }
