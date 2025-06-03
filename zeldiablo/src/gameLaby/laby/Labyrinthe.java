@@ -297,6 +297,8 @@ public class Labyrinthe {
 
 
     public boolean victoire() {
-        return (this.getPerso().aAmulette() && this.getPerso().getPosition() == positionDepart);
+        return (this.getPerso().aAmulette() &&
+                this.getPerso().getPosition()[0] == positionDepart[0] &&
+                this.getPerso().getPosition()[1] == positionDepart[1]);
     }
 }

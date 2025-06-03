@@ -35,17 +35,27 @@ public class LabyDessin implements DessinJeu {
      * @param canvas le canevas sur lequel afficher le message de fin
      */
     public void ecranFin(Jeu jeu, Canvas canvas) {
+        LabyJeu lj = (LabyJeu) jeu;
+        Labyrinthe laby = lj.getLabyrinthe();
+
         final GraphicsContext gc = canvas.getGraphicsContext2D();
 
         // Fond noir
         gc.setFill(Color.BLACK);
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
+        String message;
         // Texte à afficher
-        String message = "Vous avez perdu !";
+        if(laby.victoire()){
+            message = "Vous avez gagné !";
+            gc.setFill(Color.GREEN);}
+        else{
+            message = "Vous avez perdu !";
+            gc.setFill(Color.RED);
+        }
+
         javafx.scene.text.Font font = javafx.scene.text.Font.font("Arial", 40);
         gc.setFont(font);
-        gc.setFill(Color.RED);
 
         // Mesure du texte pour le centrer
         javafx.scene.text.Text text = new javafx.scene.text.Text(message);
