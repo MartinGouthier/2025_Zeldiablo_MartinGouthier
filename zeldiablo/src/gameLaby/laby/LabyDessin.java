@@ -48,7 +48,8 @@ public class LabyDessin implements DessinJeu {
         // Texte à afficher
         if(laby.victoire()){
             message = "Vous avez gagné !";
-            gc.setFill(Color.GREEN);}
+            gc.setFill(Color.GREEN);
+        }
         else{
             message = "Vous avez perdu !";
             gc.setFill(Color.RED);

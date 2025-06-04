@@ -2,6 +2,7 @@ package moteurJeu;
 
 //https://github.com/zarandok/megabounce/blob/master/MainCanvas.java
 
+import gameLaby.laby.Labyrinthe;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.beans.property.LongProperty;
