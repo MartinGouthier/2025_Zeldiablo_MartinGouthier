@@ -59,8 +59,9 @@ public class Perso extends Entite{
     public boolean peutTraverser(String dir, Labyrinthe laby) {
         if (super.peutTraverser(dir, laby)) {
             int[] coord = Labyrinthe.getSuivant(this.getPosition()[0], this.getPosition()[1], dir);
-            if (laby.getAmulette().getPosition()[0] == coord[0] && laby.getAmulette().getPosition()[1] == coord[1]) {
+            if (laby.getAmulette()!=null&&laby.getAmulette().getPosition()[0] == coord[0] && laby.getAmulette().getPosition()[1] == coord[1]) {
                 this.possedeAmulette = true;
+                laby.enleverAmulette();
             }
             return true;
         }

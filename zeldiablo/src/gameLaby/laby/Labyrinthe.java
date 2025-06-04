@@ -303,4 +303,8 @@ public class Labyrinthe {
         return (this.getPerso().aAmulette() &&
                 this.getPerso().etrePresent(positionDepart[0],positionDepart[1]));
     }
+
+    public void enleverAmulette(){
+        this.amulette = null;
+    }
 }

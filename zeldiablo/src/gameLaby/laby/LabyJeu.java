@@ -63,8 +63,8 @@ public class LabyJeu implements Jeu {
                 Entite entite = laby.getEntites().get(i);
                 if (laby.getEntites().indexOf(entite) != 0) { // Si ce n'est pas le joueur
                     Random rand = new Random();
-                    int n = rand.nextInt(10); // Une chance sur 10 pour faire une action
-                    if (n <= 1) {
+                    int n = rand.nextInt(5); // Une chance sur 5 pour faire une action
+                    if (n == 0) {
                         Monstre m = (Monstre) entite;
                         m.getDeplacement().seDeplacer(m, laby);
                         if (!m.estVivant()) {
