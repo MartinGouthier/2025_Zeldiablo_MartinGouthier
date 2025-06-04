@@ -144,19 +144,19 @@ public class Labyrinthe {
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute entité
                         DeplacementNul dep = new DeplacementNul();
-                        this.entites.add(new Monstre(colonne, numeroLigne, 5, dep));
+                        this.entites.add(new Monstre(colonne, numeroLigne, 2, dep));
                         break;
                     case MONSTRE_DEPLACEMENT_FAIBLE:
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute entité
                         DeplacementFaible depf = new DeplacementFaible();
-                        this.entites.add(new Monstre(colonne, numeroLigne, 5, depf));
+                        this.entites.add(new Monstre(colonne, numeroLigne, 2, depf));
                         break;
                     case MONSTRE_DEPLACEMENT_MANHATTAN:
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute entité
                         DeplacementManhattan depm = new DeplacementManhattan();
-                        this.entites.add(new Monstre(colonne, numeroLigne, 5, depm));
+                        this.entites.add(new Monstre(colonne, numeroLigne, 2, depm));
                         break;
 
                     case CASSEAEFFET:
@@ -167,11 +167,11 @@ public class Labyrinthe {
                         break;
                     case FANTOME_DEPLACEMENT_FAIBLE:
                         DeplacementFaible depf2 = new DeplacementFaible();
-                        this.entites.add(new Fantome(colonne, numeroLigne, 5, depf2));
+                        this.entites.add(new Fantome(colonne, numeroLigne, 2, depf2));
                         break;
                     case FANTOME_DEPLACEMENT_MANHATTAN:
                         DeplacementManhattan depm2 = new DeplacementManhattan();
-                        this.entites.add(new Fantome(colonne, numeroLigne, 5, depm2));
+                        this.entites.add(new Fantome(colonne, numeroLigne, 2, depm2));
 
                     case PIEGE:
                         // pas de mur
