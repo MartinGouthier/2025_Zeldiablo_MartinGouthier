@@ -16,6 +16,10 @@ public class LabyJeu implements Jeu {
      * Labyrinthe dans lequel se déroule le jeu.
      */
     private Labyrinthe laby;
+    /**
+     * Booleen indiquant si le jeu est fini
+     */
+    private boolean estFini;
 
     /**
      * Constructeur de la classe {@code LabyJeu}.
@@ -24,7 +28,8 @@ public class LabyJeu implements Jeu {
      * @throws IOException si le fichier du labyrinthe ne peut être lu.
      */
     public LabyJeu() throws IOException {
-        this.laby = new Labyrinthe("labySimple/laby1.txt");
+        this.laby = new Labyrinthe("labySimple/laby3.txt");
+        estFini = false;
     }
 
     /**
@@ -35,34 +40,36 @@ public class LabyJeu implements Jeu {
      */
     public void update(double secondes, Clavier clavier) {
 
-        // déplace le personnage en fonction des actions clavier
-        if (clavier.droite) {
-            this.laby.deplacerManuel(Labyrinthe.DROITE, laby.getPerso());
-        }
+        if (!etreFini()) {
+            // déplace le personnage en fonction des actions clavier
+            if (clavier.droite) {
+                this.laby.deplacerManuel(Labyrinthe.DROITE, laby.getPerso());
+            }
 
-        if (clavier.gauche) {
-            this.laby.deplacerManuel(Labyrinthe.GAUCHE, laby.getPerso());
-        }
+            if (clavier.gauche) {
+                this.laby.deplacerManuel(Labyrinthe.GAUCHE, laby.getPerso());
+            }
 
-        if (clavier.haut) {
-            this.laby.deplacerManuel(Labyrinthe.HAUT, laby.getPerso());
-        }
+            if (clavier.haut) {
+                this.laby.deplacerManuel(Labyrinthe.HAUT, laby.getPerso());
+            }
 
-        if (clavier.bas) {
-            this.laby.deplacerManuel(Labyrinthe.BAS, laby.getPerso());
-        }
+            if (clavier.bas) {
+                this.laby.deplacerManuel(Labyrinthe.BAS, laby.getPerso());
+            }
 
-        // Actions des entités
-        for (int i=0;i<laby.getEntites().size();i++){
-            Entite entite = laby.getEntites().get(i);
-            if (laby.getEntites().indexOf(entite) != 0){ // Si ce n'est pas le joueur
-                Random rand = new Random();
-                int n = rand.nextInt(10); // Une chance sur 10 pour faire une action
-                if (n<=1) {
-                    Monstre m = (Monstre) entite;
-                    m.getDeplacement().seDeplacer(m, laby);
-                    if (!m.estVivant()){
-                        this.laby.getEntites().remove(m);
+            // Actions des entités
+            for (int i = 0; i < laby.getEntites().size(); i++) {
+                Entite entite = laby.getEntites().get(i);
+                if (laby.getEntites().indexOf(entite) != 0) { // Si ce n'est pas le joueur
+                    Random rand = new Random();
+                    int n = rand.nextInt(10); // Une chance sur 10 pour faire une action
+                    if (n <= 1) {
+                        Monstre m = (Monstre) entite;
+                        m.getDeplacement().seDeplacer(m, laby);
+                        if (!m.estVivant()) {
+                            this.laby.getEntites().remove(m);
+                        }
                     }
                 }
             }
@@ -84,15 +91,20 @@ public class LabyJeu implements Jeu {
      * @return {@code true} si le jeu est fini, {@code false} sinon.
      */
     public boolean etreFini() {
-        if (!this.laby.getPerso().estVivant()){
-            System.out.println("Le jeu est fini car le personnage est mort");
-            return true;
-        } else if (this.laby.victoire()) {
-            System.out.println("Le jeu est fini car vous avez placé l'amulette");
-            return true;
-
+        if (!estFini) {
+            if (!this.laby.getPerso().estVivant()) {
+                System.out.println("Le jeu est fini car le personnage est mort");
+                estFini = true;
+                return true;
+            } else if (this.laby.victoire()) {
+                System.out.println("Le jeu est fini car vous avez placé l'amulette");
+                estFini = true;
+                return true;
+            }
+            return false;
         }
-        return false;
+        return true;
+
     }
 
 
