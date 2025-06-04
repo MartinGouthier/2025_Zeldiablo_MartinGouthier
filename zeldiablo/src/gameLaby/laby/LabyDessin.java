@@ -6,6 +6,8 @@ import javafx.scene.paint.Color;
 import moteurJeu.DessinJeu;
 import moteurJeu.Jeu;
 
+import java.util.Scanner;
+
 /**
  * Classe responsable de l'affichage graphique du jeu de labyrinthe.
  * Implémente l'interface {@link DessinJeu}.
