@@ -1,5 +1,3 @@
-# 2025_Zeldiablo_MartinGouthier
-
 # 🕹️ Zeldiablo 2025 - Martin Gouthier / Alexis Serda / Chebbah Yanis / Logan Singet / Tamourgh Jassem
 
 Bienvenue dans **Zeldiablo 2025**, un mini-jeu d'action-aventure inspiré de *The Legend of Zelda* ! 🧙‍♂️⚔️  
