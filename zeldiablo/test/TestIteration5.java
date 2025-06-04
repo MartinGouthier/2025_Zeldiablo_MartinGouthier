@@ -11,17 +11,21 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestIteration5 {
 
+    /**
+     * Test permettant
+     * @throws IOException
+     */
     @Test
-    void testPeutTraverser_HorsLimite() throws IOException {
+    void TestFinDuJeu() throws IOException {
         Fantome fantome = new Fantome(0, 0, 5, new DeplacementFaible());
         Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
         Perso perso = l.getPerso();
-        perso.deplacer(Labyrinthe.DROITE);
-        perso.deplacer(Labyrinthe.DROITE);
-        perso.deplacer(Labyrinthe.DROITE);
-        perso.deplacer(Labyrinthe.GAUCHE);
-        perso.deplacer(Labyrinthe.GAUCHE);
-        perso.deplacer(Labyrinthe.GAUCHE);
+        l.deplacerManuel(Labyrinthe.DROITE, perso);
+        l.deplacerManuel(Labyrinthe.DROITE, perso);
+        l.deplacerManuel(Labyrinthe.DROITE, perso);
+        l.deplacerManuel(Labyrinthe.GAUCHE, perso);
+        l.deplacerManuel(Labyrinthe.GAUCHE, perso);
+        l.deplacerManuel(Labyrinthe.GAUCHE, perso);
         assertTrue(l.victoire());
 
     }

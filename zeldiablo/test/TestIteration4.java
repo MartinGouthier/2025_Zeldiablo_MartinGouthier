@@ -115,9 +115,9 @@ public class TestIteration4 {
     void PersoPossedeAmulette() throws IOException {
         Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
         Perso perso = l.getPerso();
-        perso.deplacer(Labyrinthe.DROITE);
-        perso.deplacer(Labyrinthe.DROITE);
-        perso.deplacer(Labyrinthe.DROITE);
+        l.deplacerManuel(Labyrinthe.DROITE,perso);
+        l.deplacerManuel(Labyrinthe.DROITE,perso);
+        l.deplacerManuel(Labyrinthe.DROITE,perso);
         assertTrue(perso.aAmulette());
     }
 
@@ -130,14 +130,14 @@ public class TestIteration4 {
         Labyrinthe l = new Labyrinthe("labySimple/laby1.txt");
         Entite m = l.getEntites().get(1);
         Perso perso = l.getPerso();
-        m.deplacer(Labyrinthe.DROITE);
-        m.deplacer(Labyrinthe.DROITE);
-        m.deplacer(Labyrinthe.DROITE);
-        m.deplacer(Labyrinthe.BAS);
-        m.deplacer(Labyrinthe.HAUT);
-        perso.deplacer(Labyrinthe.DROITE);
-        perso.deplacer(Labyrinthe.DROITE);
-        perso.deplacer(Labyrinthe.DROITE);
+        l.deplacerManuel(Labyrinthe.DROITE,m);
+        l.deplacerManuel(Labyrinthe.DROITE,m);
+        l.deplacerManuel(Labyrinthe.DROITE,m);
+        l.deplacerManuel(Labyrinthe.BAS,m);
+        l.deplacerManuel(Labyrinthe.HAUT,m);
+        l.deplacerManuel(Labyrinthe.DROITE,perso);
+        l.deplacerManuel(Labyrinthe.DROITE,perso);
+        l.deplacerManuel(Labyrinthe.DROITE,perso);
         assertTrue(perso.aAmulette());
     }
 }
