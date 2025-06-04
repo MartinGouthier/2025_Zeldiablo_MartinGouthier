@@ -9,5 +9,7 @@ public class DeplacementNul implements TypeDeplacement{
      * @param e Entité déplacée
      * @param lab Labyrinthe utilisé
      */
-    public void seDeplacer(Entite e, Labyrinthe lab) {}
+    public void seDeplacer(Entite e, Labyrinthe lab) {
+
+    }
 }
