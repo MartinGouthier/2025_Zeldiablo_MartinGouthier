@@ -54,14 +54,152 @@ Ce jeu en Java a été développé dans le cadre d’un projet universitaire et 
 Compiler les fichiers Java :
 javac src/**/*.java
 
-Lancer le jeu :
-java -cp src main.Main
 💡 Le jeu s’exécute dans une interface texte (console) et nécessite des interactions clavier.
 
-🎮 Points forts du gameplay
+###🎮 Points forts du gameplay
   🧍 Déplacez votre héros dans le donjon
   🐍 Affrontez ou évitez les monstres
   🧠 Les ennemis vous poursuivent grâce à une IA simple
   🗝️ Trouvez la clé pour atteindre la sortie
 
+---
 
+## 🧩 Première Itération – Base du jeu + gestion de la mort
+
+### ⚔️ Fonctionnalité 6.1 : Mort du héros
+
+- **Conception** : Jassem, Martin
+- **Implémentation** : Yanis, Alexis, Logan
+- **Séquence** : Logan, Alexis, Jassem
+- **Tests** : Alexis, Martin
+
+#### 👨‍💻 Classe `Perso`
+- Attribut : `vie` (par défaut 5)
+- Méthodes : `getVie()`, `modifierVie()`, `estVivant()`
+- Modification de `etreFini()` pour vérifier si le héros est vivant
+
+#### 🎨 Classe `LabyDessin`
+- Méthode `dessinerJeu()` affiche un écran de fin si `etreFini()`
+
+#### 🔁 Classe `LabyJeu`
+- `etreFini()` vérifie `!getPerso().estVivant()`
+
+### 👾 Fonctionnalité 2 : Ajout des monstres
+
+- Création d’une classe abstraite `Entite`
+- Création de `Monstre extends Entite`
+- `Perso` devient `extends Entite`
+- Monstres intégrés dans le labyrinthe (`'M'`)
+- Blocage de déplacement si monstre sur la case
+
+### ✅ Tests réalisés
+- Vie du personnage modifiée correctement
+- Monstre présent dans le labyrinthe et bloquant
+
+---
+
+## 🔮 Deuxième Itération – Cases à effet et pièges
+
+### 🧠 Fonctionnalité 1.4 : Cases à effet
+
+- **Choix d'implémentation** : Classe mère `CaseEffet` et classes filles (`CasePiege`, etc.)
+
+#### 👨‍💻 Classe `Labyrinthe`
+- Génère des `CaseEffet`
+- Méthode `deplacerEntite()` détecte les effets
+
+#### 🔍 Classe `CaseEffet`
+- Attributs : `x`, `y`, `decouvert`
+- Méthodes : `activation()`, `getPosition()`, `getDecouvert()`
+
+### ☠️ Fonctionnalité 1.5 : Case piège
+
+- Classe `CasePiege extends CaseEffet`
+- Inflige 1 PV de dégâts
+- Réarmement du piège après départ du joueur
+
+### ✅ Tests réalisés
+- Le joueur prend un seul dégât
+- Le piège se réactive correctement
+- Affichage console de l’effet
+
+---
+
+## 👣 Troisième Itération – Déplacement intelligent des monstres
+
+### 🧩 Optimisation : création de la classe `Element`
+
+- `Element` regroupe `Entite` et `CaseEffet`
+- Uniformisation des coordonnées (`int[] position`)
+
+### 🧠 Fonctionnalité 2.5 : IA variable pour les monstres
+
+- Interface `TypeDeplacement` → `seDeplacer(Entite, Labyrinthe)`
+- Implémentations :
+  - `DeplacementImmobile`
+  - `DeplacementAleatoire`
+  - `DeplacementManhattan` (va vers le joueur)
+
+### ✅ Critères et Tests
+- Plusieurs types de monstres présents
+- Déplacement cohérent selon l’intelligence
+- IA moyenne détecte le joueur mais ignore les murs
+
+---
+
+## 👻 Quatrième Itération – Fantômes & Amulette
+
+### 👻 Fonctionnalité 3.2 : Fantôme
+
+- Classe `Fantome extends Monstre`
+- Peut traverser les murs, pas les entités
+- Redéfinition de `peutTraverser(dir, laby)`
+
+### 💎 Fonctionnalités 6.2 & 6.3 : Amulette
+
+- Classe `Amulette extends Element`
+- Attributs : `x`, `y`
+- Ajout de `possedeAmulette` dans `Perso`
+- `deplacer()` modifié pour prise de l’amulette
+
+### ✅ Critères de validation
+- L’amulette disparaît une fois prise
+- Seul le héros peut la récupérer
+- Affichage sous forme de cercle jaune
+
+---
+
+## 🏆 Cinquième Itération – Victoire du héros
+
+### 🏁 Fonctionnalité 6.4 : Fin de partie
+
+- Si `perso.aAmulette()` && retour à l’entrée ⇒ victoire
+- Nouvelle méthode `victoire()` dans `LabyJeu`
+- `LabyDessin` affiche un écran de victoire ou défaite selon état
+
+### ✅ Tests réalisés
+- Le jeu se termine avec l’amulette à l’entrée
+- Le jeu continue si le héros revient sans l’amulette
+
+---
+
+## 🧪 Bilan des tests
+
+- ✅ Tests unitaires pour les déplacements, collisions, effets, IA
+- ✅ Scénarios de victoire et défaite
+- ✅ Tests d’interaction entre entités et cases
+
+---
+
+## 📌 Conclusion
+
+Ce projet a permis de découvrir :
+
+- Le **développement itératif** avec une approche agile
+- L’importance de **l’architecture orientée objet**
+- La **gestion des entités, effets, IA, et logique de victoire**
+- La **collaboration en équipe** et le versionnage Git
+
+🔜 Possibilités futures : ajout d’un inventaire, de nouvelles IA, ou d’un rendu graphique plus avancé !
+
+---
