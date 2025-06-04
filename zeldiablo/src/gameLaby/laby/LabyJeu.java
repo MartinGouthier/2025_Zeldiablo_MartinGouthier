@@ -28,7 +28,7 @@ public class LabyJeu implements Jeu {
      * @throws IOException si le fichier du labyrinthe ne peut être lu.
      */
     public LabyJeu() throws IOException {
-        this.laby = new Labyrinthe("labySimple/labyITERATION5.txt");
+        this.laby = new Labyrinthe("labySimple/labyITERATION6.txt");
         estFini = false;
     }
 

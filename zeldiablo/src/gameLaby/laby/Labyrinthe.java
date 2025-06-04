@@ -304,6 +304,9 @@ public class Labyrinthe {
                 this.getPerso().etrePresent(positionDepart[0],positionDepart[1]));
     }
 
+    /**
+     * Retire l'amulette du labyrinthe
+     */
     public void enleverAmulette(){
         this.amulette = null;
     }

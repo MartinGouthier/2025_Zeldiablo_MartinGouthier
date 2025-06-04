@@ -12,8 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class TestIteration5 {
 
     /**
-     * Test permettant
-     * @throws IOException
+     * Test permettant de verifier la fin du jeu
+     * @throws IOException I/O Erreur
      */
     @Test
     void TestFinDuJeu() throws IOException {
